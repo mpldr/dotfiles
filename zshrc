@@ -152,6 +152,8 @@ alias status='sudo systemctl status'
 alias dcu='docker-compose up -d --remove-orphans'
 alias dcd='docker-compose down'
 alias dcr='dcd && dcu'
+alias dcl='docker-compose logs'
+alias dclf='docker-compose logs -f'
 alias R='sudo -i'
 alias pprof='go tool pprof -http=:8080'
 alias cover='go test -v -cover -coverprofile /tmp/cover.prof && go tool cover -html /tmp/cover.prof -o /tmp/cover.html && xdg-open /tmp/cover.html'
@@ -198,11 +200,11 @@ function p() {
 	cd ~/Projects/$1
 }
 
-type exa >/dev/null 2>&1 && alias ls='exa -l --git -s type' || alias ls='ls -ohGNp --color=always'
-type rg >/dev/null 2>&1 && alias grep='rg -C 2 --line-number -L' || alias grep='grep --color=auto -n -C 2 -r'
-type fd >/dev/null 2>&1 && alias fd='fd' || alias fd='find'
-type mvg >/dev/null 2>&1 && alias mv='mvg -g'
-type cpg >/dev/null 2>&1 && alias cp='cpg -g'
+type exa  >/dev/null 2>&1 && alias ls='exa -l --git -s type' || alias ls='ls -ohGNp --color=always'
+type rg   >/dev/null 2>&1 && alias grep='rg -C 2 --line-number -L' || alias grep='grep --color=auto -n -C 2 -r'
+type fd   >/dev/null 2>&1 && alias find='fd' || alias fd='find'
+type mvg  >/dev/null 2>&1 && alias mv='mvg -g'
+type cpg  >/dev/null 2>&1 && alias cp='cpg -gr' || alias cp='cp -r'
 type slit >/dev/null 2>&1 && alias less='slit'
 
 type rclone >/dev/null 2>&1 && source <(rclone genautocomplete zsh /dev/stdout)
