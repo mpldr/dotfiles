@@ -1,0 +1,22 @@
+[
+    {
+        "caption": "Add Subtree",
+        "command": "git",
+        "args": {"argv": ["subtree", "add", "--prefix", "$text", "$text", "$select_remote_branch"]}
+    },
+    {
+        "caption": "Push Subtree",
+        "command": "git",
+        "args": {"argv": ["subtree", "push", "--prefix", "$text", "$text", "$select_branch"]}
+    },
+    {
+        "caption": "Pull Subtree",
+        "command": "git",
+        "args": {"argv": ["subtree", "pull", "--prefix", "$text", "$text", "$select_branch"]}
+    },
+    {
+        "caption": "Merge Subtree",
+        "command": "git",
+        "args": {"argv": ["subtree", "merge", "--prefix", "$text", "$select_commit"]}
+    },
+]

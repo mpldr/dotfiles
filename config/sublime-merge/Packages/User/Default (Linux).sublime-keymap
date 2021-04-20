@@ -1,0 +1,12 @@
+[
+	{
+		"keys": ["super+up"],
+		"command": "git",
+		"args": {"argv": ["push", "--tags", "--follow-tags", "--signed=if-asked", "origin", "HEAD"]}
+	},
+	{
+		"keys": ["super+down"],
+		"command": "git",
+		"args": {"argv": ["pull", "--commit", "--autostash"]}
+	},
+]
