@@ -1,0 +1,264 @@
+#################################################
+#                  AUTOSTART                    #
+#################################################
+
+output DP-2 position 1920,0 resolution 2560x1440 scale 1.125
+output DP-3 position 0,0    resolution 1920x1080
+
+# start wob for an volume and brightness indication
+exec mkfifo /tmp/SWAYSOCK.wob && tail -f /tmp/SWAYSOCK.wob | wob
+exec xhost +SI:localuser:root # for allowing sudo windows
+exec ramboxpro 
+exec discord --start-minimized
+exec bash -c "sleep 10 && discord --url"
+exec mako
+exec autotiling
+exec spotifyd
+exec nzbget -D
+exec /usr/lib/kdeconnectd
+exec planner -s
+exec redshift -l 51.1612:13.4832
+exec dash -c 'while true; do echo $(yay -Qu --repo | wc -l)+$(yay -Qua | wc -l) > /tmp/pending_updates; sleep 60; done'
+#exec wf-recorder --muxer=v4l2 --codec=rawvideo --file=/dev/video0 -o DP-3 -g 0,0 1920x1080
+
+#################################################
+#                   INPUT                       #
+#################################################
+
+# German Keyboard Layout please
+input * xkb_layout de
+
+# enable tap to touch and disable natural scrolling
+input type:touchpad {
+	tap enabled
+		natural_scroll disabled
+}
+
+# enable numlock
+input * xkb_numlock enable
+
+# enable special Fn keys
+bindsym XF86AudioRaiseVolume exec pamixer -ui 5 && pamixer --get-volume > /tmp/SWAYSOCK.wob
+bindsym XF86AudioLowerVolume exec pamixer -ud 5 && pamixer --get-volume > /tmp/SWAYSOCK.wob
+bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > /tmp/SWAYSOCK.wob ) || pamixer --get-volume > /tmp/SWAYSOCK.wob
+bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > /tmp/SWAYSOCK.wob
+bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > /tmp/SWAYSOCK.wob
+bindsym XF86AudioPlay         exec playerctl     play-pause
+bindsym XF86AudioNext         exec playerctl     next
+bindsym XF86AudioPrev         exec playerctl     previous
+
+########## Shortcuts ###########
+
+set $mod Mod1
+
+# movements
+bindsym --to-code {
+	$mod+Left focus left
+		$mod+Down focus down
+		$mod+Up focus up
+		$mod+Right focus right
+}
+
+# shifting
+bindsym --to-code {
+	$mod+Shift+Left move left
+		$mod+Shift+Down move down
+		$mod+Shift+Up move up
+		$mod+Shift+Right move right
+}
+
+# modes
+bindsym --to-code {
+	$mod+F1 layout stacking
+		$mod+F2 layout tabbed
+		$mod+F3 layout toggle split
+		$mod+F4 floating toggle
+}
+
+bindsym --to-code {
+	$mod+Ctrl+Right resize grow   width  1 px or 1 ppt
+	$mod+Ctrl+Up    resize shrink height 1 px or 1 ppt
+	$mod+Ctrl+Down  resize grow   height 1 px or 1 ppt
+	$mod+Ctrl+Left  resize shrink width  1 px or 1 ppt
+}
+
+bindsym $mod+Return exec kitty
+
+bindsym $mod+d exec wofi --show=drun --style ~/.config/wofi/dracula/style.css
+bindsym $mod+Shift+w exec wofi-wifi-menu
+
+bindsym $mod+f fullscreen toggle 
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+Shift+r exec swaymsg reload
+
+bindsym Print exec bash -c 'cd ~/Pictures/Screenshots/ && grim -g "$(slurp)" -t png'
+bindsym Shift+Print exec bash -c 'cd ~/Pictures/Screenshots/ && grim -t png'
+bindsym Ctrl+Print exec farge
+
+bindsym $mod+x [urgent=latest] focus
+
+#TODO: https://wiki.archlinux.org/index.php/Screen_capture#Wayland
+#https://github.com/de-arl/slurpshot
+
+#################################################
+#                     BAR                       #
+#################################################
+
+#exec yambar
+bar {
+	position top
+	font Operator Mono Lig 12
+	status_command i3status
+}
+
+bar {
+	status_command i3status-rs
+}
+
+#################################################
+#                    STYLE                      #
+#################################################
+
+# set a wallpaper so we can look at something while awaiting startup
+output "*" bg ~/.wallpaper fill
+
+seat seat0 xcursor_theme Bibata-Modern-Classic 14
+
+set $uifont "Operator Mono Book 14"
+
+default_border pixel
+default_floating_border pixel
+hide_edge_borders smart
+# class                 border  backgr. text  indicator child_border
+client.focused          #4c7899 #285577 #ffffff #3daee9 #3daee9
+client.focused_inactive #333333 #5f676a #ffffff #484e50 #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e #222222
+client.urgent           #2f343a #900000 #ffffff #900000 #900000
+
+set        $default_gaps_inner 10
+set        $default_gaps_outer 5
+gaps       inner               $default_gaps_inner
+gaps       outer               $default_gaps_outer
+smart_gaps on
+
+#################################################
+#                    MODES                      #
+#################################################
+
+set {
+	$nag         exec swaynagmode
+		$nag_exit    $nag --exit
+		$nag_confirm $nag --confirm
+		$nag_select  $nag --select
+}
+
+set $nag exec swaynagmode
+mode "nag" {
+	bindsym {
+		Ctrl+d    mode "default"
+
+			Ctrl+c    $nag --exit
+			q         $nag --exit
+			Escape    $nag --exit
+
+			Return    $nag --confirm
+
+			Tab       $nag --select prev
+			Shift+Tab $nag --select next
+
+			Left      $nag --select next
+			Right     $nag --select prev
+
+			Up        $nag --select next
+			Down      $nag --select prev
+	}
+}
+
+#bindsym {
+#	$mod+Escape $nag -t "warning" -m "Exit Sway?" -b "Exit" "swaymsg exit" -b "Reload" "swaymsg reload"
+#}
+
+bindsym $mod+Shift+q kill
+
+set $mode_system System (l)ock, (e)xit, (r)eboot, (s)hutdown
+mode "$mode_system" {
+		bindsym e exec swaymsg exit, mode "default"
+		bindsym r exec systemctl reboot, mode "default"
+		bindsym s exec systemctl poweroff -i, mode "default"
+
+# back to normal: Enter or Escape
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+}
+bindsym $mod+Escape mode "$mode_system"
+swaynag_command $nag -R
+
+################################################
+#                 WORKSPACES                    #
+#################################################
+set $ws1 "1 "
+set $ws2 "2 "
+set $ws3 "3 "
+set $ws4 "4 "
+set $ws5 "5 "
+set $ws6 "6 "
+set $ws7 "7 "
+set $ws8 "8 "
+set $ws9 "9"
+set $ws0 "10 "
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0
+
+bindsym $mod+tab workspace back_and_forth
+
+# to get the class of the focused widow
+bindsym F12 exec ~/.getwindowname_sway.sh
+
+# some assignments
+for_window [app_id="galculator"]       floating enable
+for_window [class="feh"]               floating enable
+for_window [class="ramboxpro"]         tabbed   enable
+for_window [class="discord"]           tabbed   enable
+assign     [class="ramboxpro"]         $ws3
+assign     [class="discord"]           $ws3
+assign     [class="firefox"]           $ws4
+assign     [class="Vmware"]            $ws6
+for_window [class="ramboxpro"]         tabbed   enable
+for_window [class="discord"]           tabbed   enable
+for_window [app_id="mpv"]              floating enable
+for_window [window_role="pop-up"]      floating enable
+for_window [window_role="bubble"]      floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"]      floating enable
+for_window [window_type="menu"]        floating enable
+for_window [window_role="About"]       floating enable
+for_window [window_role="pop-up"]      floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [title="Preferences$"]      floating enable
