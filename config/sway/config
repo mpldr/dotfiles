@@ -2,7 +2,8 @@
 #                  AUTOSTART                    #
 #################################################
 
-output DP-2 position 1920,0 resolution 2560x1440 scale 1.125
+#output DP-2 position 1920,0 resolution 2560x1440 scale 1.125
+output DP-2 position 1920,0 resolution 2560x1440
 output DP-3 position 0,0    resolution 1920x1080
 
 # start wob for an volume and brightness indication
@@ -19,6 +20,8 @@ exec /usr/lib/kdeconnectd
 exec planner -s
 exec redshift -l 51.1612:13.4832
 exec dash -c 'while true; do echo $(yay -Qu --repo | wc -l)+$(yay -Qua | wc -l) > /tmp/pending_updates; sleep 60; done'
+exec dash -c 'while true; do ping -c 1 1.1.1.1 && touch /tmp/internet || rm /tmp/internet; sleep 5; done'
+exec dash -c 'while true; do pgrep wf-recorder && touch /tmp/screensharing || rm /tmp/screensharing; sleep 1; done'
 #exec wf-recorder --muxer=v4l2 --codec=rawvideo --file=/dev/video0 -o DP-3 -g 0,0 1920x1080
 
 #################################################
@@ -31,7 +34,7 @@ input * xkb_layout de
 # enable tap to touch and disable natural scrolling
 input type:touchpad {
 	tap enabled
-		natural_scroll disabled
+	natural_scroll disabled
 }
 
 # enable numlock
@@ -54,32 +57,36 @@ set $mod Mod1
 # movements
 bindsym --to-code {
 	$mod+Left focus left
-		$mod+Down focus down
-		$mod+Up focus up
-		$mod+Right focus right
+	$mod+Down focus down
+	$mod+Up focus up
+	$mod+Right focus right
 }
 
 # shifting
 bindsym --to-code {
 	$mod+Shift+Left move left
-		$mod+Shift+Down move down
-		$mod+Shift+Up move up
-		$mod+Shift+Right move right
+	$mod+Shift+Down move down
+	$mod+Shift+Up move up
+	$mod+Shift+Right move right
 }
 
 # modes
 bindsym --to-code {
 	$mod+F1 layout stacking
-		$mod+F2 layout tabbed
-		$mod+F3 layout toggle split
-		$mod+F4 floating toggle
+	$mod+F2 layout tabbed
+	$mod+F3 layout toggle split
+	$mod+F4 floating toggle
 }
 
 bindsym --to-code {
-	$mod+Ctrl+Right resize grow   width  1 px or 1 ppt
-	$mod+Ctrl+Up    resize shrink height 1 px or 1 ppt
-	$mod+Ctrl+Down  resize grow   height 1 px or 1 ppt
-	$mod+Ctrl+Left  resize shrink width  1 px or 1 ppt
+	$mod+Ctrl+Right       resize grow   width  1 px or 1 ppt
+	$mod+Ctrl+Shift+Right resize grow   width  5 px or 5 ppt
+	$mod+Ctrl+Up          resize shrink height 1 px or 1 ppt
+	$mod+Ctrl+Shift+Up    resize shrink height 5 px or 5 ppt
+	$mod+Ctrl+Down        resize grow   height 1 px or 1 ppt
+	$mod+Ctrl+Shift+Down  resize grow   height 5 px or 5 ppt
+	$mod+Ctrl+Left        resize shrink width  1 px or 1 ppt
+	$mod+Ctrl+Shift+Left  resize shrink width  5 px or 5 ppt
 }
 
 bindsym $mod+Return exec kitty
@@ -98,6 +105,7 @@ bindsym $mod+Shift+r exec swaymsg reload
 bindsym Print exec bash -c 'cd ~/Pictures/Screenshots/ && grim -g "$(slurp)" -t png'
 bindsym Shift+Print exec bash -c 'cd ~/Pictures/Screenshots/ && grim -t png'
 bindsym Ctrl+Print exec farge
+bindsym Ctrl+Shift+Print exec dash -c 'pgrep wf-recorder && pkill -2 wf-recorder || wf-recorder --muxer=v4l2 --codec=rawvideo -x yuv420p -o DP-3 --file=/dev/video0'
 
 bindsym $mod+x [urgent=latest] focus
 
