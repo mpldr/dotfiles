@@ -1,0 +1,67 @@
+attribute:
+  fa: 
+
+    # Typical laptop setup, with wifi, brightness, battery etc, for
+# i3/Sway.
+
+# For X11/i3, you'll want to replace calls to swaymsg with i3-msg, and
+# the sway-xkb module with the xkb module.
+
+# fonts we'll be re-using here and there
+awesome: &awesome Font Awesome 5:style=light:size=12
+awesome_brands: &awesome_brands Font Awesome 5:style=brand:size=12
+
+std_underline: &std_underline {underline: { size: 2, color: 4db5dbbb}}
+
+# This is THE bar configuration
+bar:
+  height: 24
+  location: top
+  spacing: 10
+  margin: 7
+
+  # Default font
+  font: Operator Mono Lig Book:pixelsize=12
+
+  foreground: ffffffff
+  background: 282C34f0
+
+  border:
+    width: 1
+    color: 999999cc
+    margin: 5
+    top-margin: 0
+
+  #left:
+
+  center:
+    - script:
+        path: /usr/bin/dash
+        args: ["-c","while true; do ls /tmp/screensharing > /dev/null 2>&1 && echo 'con|int|1' || echo 'con|int|0'; echo ''; sleep 1; done"]
+        content:
+          map:
+            tag: con
+            default: {string: {text: }}
+            values:
+              1: {string: {text:  screensharing active, font: *awesome, foreground: ffcc00ff}}
+
+  right:
+    - script:
+        path: /usr/bin/dash
+        args: [
+          "-c",
+          "while true; do ls /tmp/internet > /dev/null 2>&1 && (echo 'con|int|1'; echo \"addr|string|$(ip addr show dev eno1 | grep 'inet ' | sed 's/.*inet \\([^\/]*\\).*/\\1/')\") || echo 'con|int|0'; echo ''; sleep 1; done"]
+        content:
+          map:
+            tag: con
+            default: {string: {text: " no internet", font: *awesome, foreground: ff0000ff}}
+            values:
+              1: {string: {text: " {addr}", font: *awesome, foreground: 00ff00ff}}
+    - network:
+        name: vpn
+        content:
+          map:
+            tag: state
+            default: {string: {text:  VPN active, font: *awesome, foreground: 00ff00ff}}
+            values:
+              down: {string: {text:  VPN inactive,font: *awesome, foreground: ff0000ff}}

@@ -116,12 +116,13 @@ bindsym $mod+x [urgent=latest] focus
 #                     BAR                       #
 #################################################
 
-#exec yambar
-bar {
-	position top
-	font Operator Mono Lig 12
-	status_command i3status
-}
+exec yambar
+exec yambar -c "~/.config/yambar/config.2nd-monitor.yml"
+#bar {
+#	position top
+#	font Operator Mono Lig 12
+#	status_command i3status
+#}
 
 bar {
 	status_command i3status-rs
