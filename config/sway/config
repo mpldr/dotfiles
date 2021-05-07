@@ -20,7 +20,7 @@ exec /usr/lib/kdeconnectd
 exec planner -s
 exec redshift -l 51.1612:13.4832
 exec dash -c 'while true; do echo $(yay -Qu --repo | wc -l)+$(yay -Qua | wc -l) > /tmp/pending_updates; sleep 60; done'
-exec dash -c 'while true; do ping -c 1 1.1.1.1 && touch /tmp/internet || rm /tmp/internet; sleep 5; done'
+exec dash -c 'while true; do curl https://moritz.sh/ip > /tmp/internet || rm /tmp/internet; sleep 5; done'
 exec dash -c 'while true; do pgrep wf-recorder && touch /tmp/screensharing || rm /tmp/screensharing; sleep 1; done'
 #exec wf-recorder --muxer=v4l2 --codec=rawvideo --file=/dev/video0 -o DP-3 -g 0,0 1920x1080
 

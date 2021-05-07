@@ -14,6 +14,7 @@ export QT_QPA_PLATFORM=wayland-egl
 export SDL_VIDEODRIVER=wayland
 export XDG_RUNTIME_DIR=/run/user/1000
 export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=sway
 export _JAVA_AWT_WM_NONREPARENTING=1
 export GOINSECURE=git.mw.local
 export GOPRIVATE=git.mw.local/*
