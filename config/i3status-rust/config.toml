@@ -1,0 +1,65 @@
+[theme]
+name = "slick"
+#[theme.overrides]
+#separator = ""
+
+[icons]
+name = "awesome"
+[icons.overrides]
+backlight_empty = "  "
+backlight_partial1 = "  "
+backlight_partial2 = "  "
+backlight_partial3 = "  "
+backlight_full = "  "
+pomodoro = "  "
+volume_full = "  "
+volume_half = "  "
+volume_empty = "  "
+volume_muted = "  "
+mail = "  "
+time = "  "
+
+[[block]]
+block = "load"
+format = "{1m} {5m}"
+
+# i3status-rust currently does not process database updates correctly.
+# # currently yay is not compilable with pacman-git. So we are stuck without the
+# # AUR update counter for now
+# [[block]]
+# block = "pacman"
+# interval = 300
+# #format = "{pacman}+{aur}"
+# format_up_to_date = "0"
+# critical_updates_regex = "(linux|linux-lts|linux-zen|linux-ck|firefox|sudo|librewolf|linux-amd|firefox)"
+# #aur_command = "yay -Qua"
+# on_click = "fakeroot pacman -Qu --dbpath /tmp/checkup-db-yourusername/ | wofi --show dmenu"
+
+[[block]]
+block = "net"
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mug}GiB/{MTg}GiB ({Mup}%)"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "sound"
+driver = "pulseaudio"
+
+#[[block]]
+#block = "pomodoro"
+#length = 25
+#break_length = 5
+#message = "Zeit für eine Pause!"
+#break_message = "Zurück an die Arbeit!"
+
+[[block]]
+block = "time"
+format = "%d.%m.%Y %H:%M:%S"
+interval = 1
+
