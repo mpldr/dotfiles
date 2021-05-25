@@ -158,7 +158,7 @@ alias R='sudo -i'
 alias pprof='go tool pprof -http=:8080'
 alias cover='go test -v -cover -coverprofile /tmp/cover.prof && go tool cover -html /tmp/cover.prof -o /tmp/cover.html && xdg-open /tmp/cover.html'
 alias todoist="todoist --color"
-alias present="st -f 'Operator Mono Lig:size=24'"
+alias present="urxvt -fn 'xft:Operator Mono Lig:pixelsize=24'"
 alias pmake='time nice make -j$(grep -c "^processor" /proc/cpuinfo) --load-average=$(grep -c "^processor" /proc/cpuinfo)'
 
 function gchr() {
