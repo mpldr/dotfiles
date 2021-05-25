@@ -125,6 +125,9 @@ Plug 'w0ng/vim-hybrid'
 
 " Format text for documentation
 Plug 'vim-scripts/TextFormat'
+
+" Retab Files
+Plug 'Thyrum/vim-stabs'
 call plug#end()
 
 " apply theme
