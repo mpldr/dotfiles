@@ -192,10 +192,18 @@ fpath=(~/.zsh $fpath)
 
 compdef '_files -g "/home/moritz/*"' 'p'
 
+function a() {
+	if [ "$1" = "" ]; then
+		echo "must give a Project"
+		return
+	fi
+	cd ~/Projects/Arbeit/$1
+}
+
 function p() {
 	if [ "$1" = "" ]; then
 		echo "must give a Project"
-		exit 1
+		return
 	fi
 	cd ~/Projects/$1
 }
