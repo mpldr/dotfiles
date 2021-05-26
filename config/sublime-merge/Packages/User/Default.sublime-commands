@@ -1,5 +1,10 @@
 [
     {
+        "caption": "Define Version",
+        "command": "git",
+        "args": {"argv": ["tag", "-a", "$text", "-m", "$text"]}
+    },
+    {
         "caption": "Add Subtree",
         "command": "git",
         "args": {"argv": ["subtree", "add", "--prefix", "$text", "$text", "$select_remote_branch"]}
