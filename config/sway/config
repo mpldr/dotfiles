@@ -18,7 +18,7 @@ exec spotifyd
 exec nzbget -D
 exec /usr/lib/kdeconnectd
 exec planner -s
-exec redshift -l 51.1612:13.4832
+exec wlsunset
 exec dash -c 'while true; do echo $(yay -Qu --repo | wc -l)+$(yay -Qua | wc -l) > /tmp/pending_updates; sleep 60; done'
 exec dash -c 'while true; do curl https://moritz.sh/ip > /tmp/internet || rm /tmp/internet; sleep 5; done'
 exec dash -c 'while true; do pgrep wf-recorder && touch /tmp/screensharing || rm /tmp/screensharing; sleep 1; done'
