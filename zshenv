@@ -18,3 +18,4 @@ export XDG_CURRENT_DESKTOP=sway
 export _JAVA_AWT_WM_NONREPARENTING=1
 export GOINSECURE=git.mw.local
 export GOPRIVATE=git.mw.local/*
+export LC_MESSAGES=C
