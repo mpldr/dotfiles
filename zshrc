@@ -235,7 +235,6 @@ type fd   >/dev/null 2>&1 && alias find='fd' || alias fd='find'
 type mvg  >/dev/null 2>&1 && alias mv='mvg -g'
 type cpg  >/dev/null 2>&1 && alias cp='cpg -gr' || alias cp='cp -r'
 type slit >/dev/null 2>&1 && alias less='slit'
-type feh  >/dev/null 2>&1 && alias feh='feh --reload'
 [ $TERM = xterm-kitty ] && alias ssh='kitty +kitten ssh'
 
 type rclone >/dev/null 2>&1 && source <(rclone genautocomplete zsh /dev/stdout)
