@@ -209,3 +209,5 @@ else
 	colorscheme sonokai
 endif
 
+map [5~ <nop>
+map [6~ <nop>
