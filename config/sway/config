@@ -28,8 +28,14 @@ exec dash -c 'while true; do pgrep wf-recorder && touch /tmp/screensharing || rm
 #                   INPUT                       #
 #################################################
 
-# German Keyboard Layout please
-input * xkb_layout de
+input * {
+	# German Keyboard Layout please
+	xkb_layout de,us(dvp)
+	# and disable this damn useless key
+	xkb_options caps:none,grp:shifts_toggle,grp_led:caps 
+	# toggle keyboard layout by pressing both shifts
+	# indicate alternative layout with capslock LED
+}
 
 # enable tap to touch and disable natural scrolling
 input type:touchpad {
