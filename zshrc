@@ -160,6 +160,7 @@ alias cover='go test -v -cover -coverprofile /tmp/cover.prof && go tool cover -h
 alias todoist="todoist --color"
 alias present="urxvt -fn 'xft:Operator Mono Lig:pixelsize=24'"
 alias pmake='time nice make -j$(grep -c "^processor" /proc/cpuinfo) --load-average=$(grep -c "^processor" /proc/cpuinfo)'
+alias mpv='mpv --ytdl-format=bestaudio'
 
 function gchr() {
 	if [ "$1" = "" ]; then
