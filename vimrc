@@ -23,7 +23,7 @@ set ignorecase
 " regenerate on save
 function! PutTags()
 	if filewritable(expand(".git/"))
-		silent !ctags -R -f .git/tags .
+		silent !find . -name node_modules &>/dev/null || ctags -R -f .git/tags .
 	endif
 endfunction
 autocmd BufWritePost *.go,*.c,*.cpp,*.h,*.js,*.css,*.tex,*.php,*.md :call PutTags()
