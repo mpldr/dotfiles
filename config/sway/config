@@ -95,7 +95,7 @@ bindsym --to-code {
 	$mod+Ctrl+Shift+Left  resize shrink width  5 px or 5 ppt
 }
 
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec kitty -1
 
 bindsym $mod+d exec wofi --show=drun --style ~/.config/wofi/dracula/style.css
 bindsym $mod+Shift+w exec wofi-wifi-menu
