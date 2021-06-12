@@ -213,6 +213,22 @@ function mkcd() {
 	cd "$1"
 }
 
+function sign_hash() {
+	sha256sum $1 $2 $3 $4 $5 $6 $7 $8 $9 | gpg --sign-with "AE369480370CD2D09330E1E2DBE3B6782D9D6584" --clearsign --output signed_file_hashes.txt
+}
+
+function tag_release() {
+	if [ "$1" = "" ]; then
+		echo "Please provide a tag"
+		return 1
+	fi
+	r=$RANDOM
+	cp ~/.release_note_template /tmp/$r
+	sed -i "s/VERSION/$1/" /tmp/$r
+	vim /tmp/$r
+	git tag -f -a v$1 -m "$(cat /tmp/$r)"
+}
+
 type exa  >/dev/null 2>&1 && alias ls='exa -l --git -s type' || alias ls='ls -ohGNp --color=always'
 type rg   >/dev/null 2>&1 && alias grep='rg -C 2 --line-number -L' || alias grep='grep --color=auto -n -C 2 -r'
 type fd   >/dev/null 2>&1 && alias find='fd' || alias fd='find'
