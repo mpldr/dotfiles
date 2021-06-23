@@ -138,7 +138,7 @@ alias gch='git checkout'
 alias gchb='git checkout -b'
 alias push='git push --tags --follow-tags --signed=if-asked origin HEAD'
 alias pull='git pull --commit --autostash'
-alias ssh-restart='sudo sshd -t && (sudo systemctl reload nginx || sudo systemctl restart sshd)'
+alias ssh-restart='sudo sshd -t && (sudo systemctl reload sshd || sudo systemctl restart sshd)'
 alias nginx-restart='sudo nginx -t && (sudo systemctl reload nginx || sudo systemctl restart nginx)'
 alias start='sudo systemctl start'
 alias stop='sudo systemctl stop'
@@ -161,6 +161,7 @@ alias todoist="todoist --color"
 alias present="urxvt -fn 'xft:Operator Mono Lig:pixelsize=24'"
 alias pmake='time nice make -j$(grep -c "^processor" /proc/cpuinfo) --load-average=$(grep -c "^processor" /proc/cpuinfo)'
 alias mpv='mpv --ytdl-format=bestaudio'
+alias gallery='feh -d . "-|"'
 
 function gchr() {
 	if [ "$1" = "" ]; then
