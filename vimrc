@@ -84,7 +84,8 @@ Plug 'sainnhe/sonokai'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' , 'for': 'go'}
 
 " unclutter markdown editing
-Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+Plug 'junegunn/goyo.vim', { 'for': ['markdown', 'md'] }
+Plug 'shushcat/vim-minimd', { 'for': ['markdown', 'md'] }
 
 " indented pasting
 " Plug 'sickill/vim-pasta'
