@@ -26,14 +26,14 @@ format = "{1m} {5m}"
 # i3status-rust currently does not process database updates correctly.
 # # currently yay is not compilable with pacman-git. So we are stuck without the
 # # AUR update counter for now
-# [[block]]
-# block = "pacman"
-# interval = 300
-# #format = "{pacman}+{aur}"
-# format_up_to_date = "0"
-# critical_updates_regex = "(linux|linux-lts|linux-zen|linux-ck|firefox|sudo|librewolf|linux-amd|firefox)"
-# #aur_command = "yay -Qua"
-# on_click = "fakeroot pacman -Qu --dbpath /tmp/checkup-db-yourusername/ | wofi --show dmenu"
+[[block]]
+block = "pacman"
+interval = 300
+format = "{pacman}+{aur}"
+format_up_to_date = "0"
+critical_updates_regex = "(linux|linux-lts|linux-zen|linux-amd|linux-ck|firefox|sudo|librewolf|linux-amd|curl|doas|systemd)"
+aur_command = "yay -Qua"
+on_click = "yay -Qu --dbpath /tmp/checkup-db-moritz/ | wofi --show dmenu"
 
 [[block]]
 block = "net"
