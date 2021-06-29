@@ -131,6 +131,9 @@ Plug 'w0ng/vim-hybrid'
 " Format text for documentation
 Plug 'vim-scripts/TextFormat'
 
+" Preview LaTeX when editing
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
 " Retab Files
 Plug 'Thyrum/vim-stabs'
 call plug#end()
@@ -216,6 +219,10 @@ endif
 
 map [5~ <nop>
 map [6~ <nop>
+
+" LaTeX autopreview
+autocmd BufNewFile,BufRead *.tex LLPStartPreview
+let g:livepreview_previewer = 'zathura'
 
 " restore cursor positions and folding
 set viewoptions=cursor,folds,slash,unix
