@@ -119,7 +119,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'chrisbra/colorizer'
 
 " Code Completion, heavy af but sooo comfy
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer --ts-completer', 'for': ['go', 'js']}
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer --ts-completer --rust-completer', 'for': ['go', 'js', 'rs']}
 
 " Prettier
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
