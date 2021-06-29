@@ -247,19 +247,25 @@ bindsym $mod+Shift+0 move container to workspace $ws0
 bindsym $mod+tab workspace back_and_forth
 
 # to get the class of the focused widow
-bindsym F12 exec ~/.getwindowname_sway.sh
+bindsym F12 exec ~/.config/sway/scripts/getwindowname.sh
 
 # some assignments
+assign     [app_id="kitty"]            $ws1
+assign     [app_id="sublime_merge"]    $ws2
+assign     [class="ramboxpro"]         $ws3
+for_window [class="ramboxpro"]         tabbed   enable
+assign     [class="teams-for-linux"]   $ws3
+for_window [class="teams-for-linux"]   tabbed   enable
+assign     [class="discord"]           $ws3
+for_window [class="discord"]           tabbed   enable
+assign     [app_id="firefox"]          $ws4
+assign     [class="Notion"]            $ws5
+assign     [class="Vmware"]            $ws6
+assign     [name=".*VirtualBox.*"]     $ws6
+assign     [app_id="lutris"]           $ws0
+
 for_window [app_id="galculator"]       floating enable
 for_window [class="feh"]               floating enable
-for_window [class="ramboxpro"]         tabbed   enable
-for_window [class="discord"]           tabbed   enable
-assign     [class="ramboxpro"]         $ws3
-assign     [class="discord"]           $ws3
-assign     [class="firefox"]           $ws4
-assign     [class="Vmware"]            $ws6
-for_window [class="ramboxpro"]         tabbed   enable
-for_window [class="discord"]           tabbed   enable
 for_window [app_id="mpv"]              floating enable
 for_window [window_role="pop-up"]      floating enable
 for_window [window_role="bubble"]      floating enable
