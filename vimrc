@@ -121,8 +121,8 @@ Plug 'chrisbra/colorizer'
 " Code Completion, heavy af but sooo comfy
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer --ts-completer --rust-completer', 'for': ['go', 'js', 'rs']}
 
-" Prettier
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" saving cursor positions and folding information
+Plug 'vim-scripts/restore_view.vim'
 
 " for presentations at work I use st which is not so happy with true color
 Plug 'w0ng/vim-hybrid'
@@ -215,3 +215,7 @@ endif
 
 map [5~ <nop>
 map [6~ <nop>
+
+" restore cursor positions and folding
+set viewoptions=cursor,folds,slash,unix
+" let g:skipview_files = ['*\.vim']
