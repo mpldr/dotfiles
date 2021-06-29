@@ -1,0 +1,86 @@
+{
+    "com.github.devkleber.ulauncher-open-link": {
+        "id": "com.github.devkleber.ulauncher-open-link",
+        "url": "https://github.com/DevKleber/ulauncher-open-link",
+        "updated_at": "2021-06-24T08:25:51.008039",
+        "last_commit": "7c6eccd22a0708d82997833ff977c67f5c36abd1",
+        "last_commit_time": "2021-03-13T23:02:04"
+    },
+    "com.github.berti92.ulauncher-redmine-extension": {
+        "id": "com.github.berti92.ulauncher-redmine-extension",
+        "url": "https://github.com/berti92/ulauncher-redmine-extension",
+        "updated_at": "2021-06-24T08:26:25.913800",
+        "last_commit": "c817258c7051e53daa9fa13e128d1f1b3031cb03",
+        "last_commit_time": "2020-10-30T21:51:38"
+    },
+    "com.github.adamtillou.ulauncher-aurman-plugin": {
+        "id": "com.github.adamtillou.ulauncher-aurman-plugin",
+        "url": "https://github.com/AdamTillou/ulauncher-aurman-plugin",
+        "updated_at": "2021-06-24T08:26:45.131158",
+        "last_commit": "f1873c7c5dcad002ca0a3f0e5fb9f5b3b8a88dbe",
+        "last_commit_time": "2020-07-17T03:09:31"
+    },
+    "com.github.skykooler.ulauncher-conversion": {
+        "id": "com.github.skykooler.ulauncher-conversion",
+        "url": "https://github.com/skykooler/ulauncher-conversion",
+        "updated_at": "2021-06-24T08:27:05.798896",
+        "last_commit": "e0c707cbdaff04de8d7aecf002535176ad562c4e",
+        "last_commit_time": "2019-07-09T14:41:19"
+    },
+    "com.github.brpaz.ulauncher-devdocs": {
+        "id": "com.github.brpaz.ulauncher-devdocs",
+        "url": "https://github.com/brpaz/ulauncher-devdocs",
+        "updated_at": "2021-06-24T08:27:30.020572",
+        "last_commit": "4dd8476d68dfa8c4c68a0e31fbcbec8b2ad769d1",
+        "last_commit_time": "2019-12-03T20:00:41"
+    },
+    "com.github.isacikgoz.ukill": {
+        "id": "com.github.isacikgoz.ukill",
+        "url": "https://github.com/isacikgoz/ukill",
+        "updated_at": "2021-06-24T08:27:56.261094",
+        "last_commit": "bc50d9f41d46b6813a5aeebddd15734dcdb9d8db",
+        "last_commit_time": "2019-05-28T18:30:00"
+    },
+    "com.github.ulauncher.ulauncher-timer": {
+        "id": "com.github.ulauncher.ulauncher-timer",
+        "url": "https://github.com/ulauncher/ulauncher-timer",
+        "updated_at": "2021-06-24T08:28:20.557738",
+        "last_commit": "4262fc24db08610d01ea311d2e12f22588c98886",
+        "last_commit_time": "2020-11-03T07:21:30"
+    },
+    "com.github.ulauncher.ulauncher-emoji": {
+        "id": "com.github.ulauncher.ulauncher-emoji",
+        "url": "https://github.com/Ulauncher/ulauncher-emoji",
+        "updated_at": "2021-06-24T20:20:42.542984",
+        "last_commit": "d56b2c8106ab5fbc87b55f608a3bd75db23f2904",
+        "last_commit_time": "2020-10-03T19:10:03"
+    },
+    "com.github.behrensger.dict_cc_ulauncher": {
+        "id": "com.github.behrensger.dict_cc_ulauncher",
+        "url": "https://github.com/behrensger/dict_cc_ulauncher",
+        "updated_at": "2021-06-25T09:37:48.518787",
+        "last_commit": "f6c60536fad95d1e32bc92a9c73911f3664e6fe1",
+        "last_commit_time": "2020-12-15T20:04:18"
+    },
+    "com.github.dhelmr.ulauncher-duckduckgo-bangs": {
+        "id": "com.github.dhelmr.ulauncher-duckduckgo-bangs",
+        "url": "https://github.com/dhelmr/ulauncher-duckduckgo-bangs",
+        "updated_at": "2021-06-25T09:49:08.345675",
+        "last_commit": "efb7b3e6545dedb4d626a085c0480eddc3dd4ed2",
+        "last_commit_time": "2020-02-15T22:17:26"
+    },
+    "com.github.zensoup.ulauncher-unicode": {
+        "id": "com.github.zensoup.ulauncher-unicode",
+        "url": "https://github.com/zensoup/ulauncher-unicode",
+        "updated_at": "2021-06-25T10:04:09.572241",
+        "last_commit": "0ad36c00a888e687b4bfbf76f266f1000040b337",
+        "last_commit_time": "2019-07-11T06:53:31"
+    },
+    "com.github.brpaz.ulauncher-file-search": {
+        "id": "com.github.brpaz.ulauncher-file-search",
+        "url": "https://github.com/brpaz/ulauncher-file-search",
+        "updated_at": "2021-06-25T10:07:16.371700",
+        "last_commit": "0ea61c2049b27f1ddfa81d1844876f21dd9d6e7b",
+        "last_commit_time": "2020-07-03T13:30:16"
+    }
+}
