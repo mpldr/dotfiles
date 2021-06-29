@@ -58,6 +58,9 @@ set softtabstop=8
 set tabstop=8
 set noexpandtab
 
+" folding is useful
+set foldmethod=marker
+
 " don't mess with my code.
 set textwidth=0
 set wrapmargin=0
@@ -77,7 +80,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'sainnhe/sonokai'
 
 " Go Toolchain
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' , 'for': 'go'}
 
 " unclutter markdown editing
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
