@@ -97,7 +97,7 @@ bindsym --to-code {
 
 bindsym $mod+Return exec kitty -1
 
-bindsym $mod+d exec wofi --show=drun --style ~/.config/wofi/dracula/style.css
+bindsym $mod+d exec ulauncher --no-window-shadow
 bindsym $mod+Shift+w exec wofi-wifi-menu
 
 bindsym $mod+f fullscreen toggle 
