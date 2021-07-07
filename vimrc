@@ -136,6 +136,12 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 " Retab Files
 Plug 'Thyrum/vim-stabs'
+
+" Snippets
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 " apply theme
@@ -229,3 +235,7 @@ let g:livepreview_previewer = 'zathura'
 " restore cursor positions and folding
 set viewoptions=cursor,folds,slash,unix
 " let g:skipview_files = ['*\.vim']
+ 
+let g:snipMate = { 'snippet_version' : 1 }
+
+imap <F4> <plug>snipMateNextOrTrigger
