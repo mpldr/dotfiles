@@ -156,7 +156,7 @@ alias dcl='docker-compose logs'
 alias dclf='docker-compose logs -f'
 alias R='sudo -i'
 alias pprof='go tool pprof -http=:8080'
-alias cover='go test -v -cover -coverprofile /tmp/cover.prof && go tool cover -html /tmp/cover.prof -o /tmp/cover.html && xdg-open /tmp/cover.html'
+alias cover='go test -v -cover -trimpath -coverprofile /tmp/cover.prof && go tool cover -html /tmp/cover.prof -o /tmp/cover.html && xdg-open /tmp/cover.html'
 alias todoist="todoist --color"
 alias present="urxvt -fn 'xft:Operator Mono Lig:pixelsize=24'"
 alias pmake='time nice make -j$(grep -c "^processor" /proc/cpuinfo) --load-average=$(grep -c "^processor" /proc/cpuinfo)'
@@ -225,8 +225,7 @@ function tag_release() {
 		return 1
 	fi
 	r=$RANDOM
-	cp ~/.release_note_template /tmp/$r
-	sed -i "s/VERSION/$1/" /tmp/$r
+	echo $1 | ~/.release_note_template > /tmp/$r
 	vim /tmp/$r
 	git tag -f -a v$1 -m "$(cat /tmp/$r)"
 }
