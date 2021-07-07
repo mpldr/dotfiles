@@ -202,9 +202,11 @@ nnoremap <esc>^[  <esc>^[
 let g:go_fmt_command   = "gopls"
 let g:go_gopls_gofumpt = 1
 
-" Toggle Undo Tree
+" custom go bindings
 nmap gie :GoIfErr<CR>
 nmap gis :GoFillStruct<CR>
+
+nmap gF :e <cfile><cr>
 
 " and now to disable everything st can't handle
 if &term =~ '256color'
