@@ -1,9 +1,9 @@
 #!/bin/sh
 
-ip=$(curl https://moritz.sh/ip 2>/dev/null ) 
+ip=$(curl -m 3 https://moritz.sh/ip 2>/dev/null )
 
 if [ $? -ne 0 ]; then
-	ip=$(curl https://moritz.sh/ip 2>/dev/null)
+	ip=$(curl -m 3 https://moritz.sh/ip 2>/dev/null)
 fi
 
 if [ $? -eq 0 ]; then
