@@ -1,0 +1,5 @@
+[user]
+	signingkey = C07FDBAA8DD2FAFEEE79D28927F176BA13437B7C
+
+[http]
+	sslverify = false

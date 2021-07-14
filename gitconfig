@@ -1,0 +1,49 @@
+[filter "lfs"]
+	process  = git-lfs filter-process
+	required = true
+	clean    = git-lfs clean -- %f
+	smudge   = git-lfs smudge -- %f
+[user]
+	name             = Moritz Poldrack
+	email            = ich@moritz-poldrack.de
+[credential]
+	helper           = cache --timeout=31557600
+[pull]
+	rebase           = true
+[commit]
+	gpgsign          = true
+[init]
+	defaultBranch    = master
+	templatedir = /home/moritz/.git-templates
+[merge]
+	ff               = false
+	directoryRenames = true
+	tool             = vimdiff
+	guitool          = smerge
+[diff]
+	renames          = true
+[format]
+	signoff          = true
+[include]
+	path             = .gitconfig.local
+
+[includeIf "gitdir:Projects/Arbeit/"]
+	path             = .gitconfig.work
+[http]
+	sslVerify = false
+[sendemail]
+	chainReplyTo       = true
+	from               = Moritz Poldrack <ich@moritz-poldrack.de>
+	assume8bitEncoding = utf-8
+	smtpEncryption     = tls
+	smtpServer         = mail.moritz-poldrack.de
+	smtpServerPort     = 587
+	smtpUser           = ich@moritz-poldrack.de
+	annotate = true
+	confirm = auto
+[rerere]
+	enabled = 1
+[core]
+	hooksPath = /home/moritz/.githooks
+[advice]
+	detachedHead = false
