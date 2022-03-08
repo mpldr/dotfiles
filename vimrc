@@ -170,6 +170,11 @@ map      tc   :bd<cr>
 map      tl   :buffers<cr>
 nnoremap <F4> :buffers<cr>:buffer<Space>
 
+" TODO: can I make it work with arrow-keys?
+nnoremap gln :lnext<cr>
+nnoremap glp :lprev<cr>
+nnoremap gll :ll<cr>
+
 " define git-shortcuts
 map gb  :b#<cr>
 map gs  :Gstatus<cr>
