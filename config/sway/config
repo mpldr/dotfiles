@@ -15,7 +15,6 @@ exec bash -c "sleep 10 && discord --url"
 exec mako
 exec keepassxc
 exec autotiling
-exec spotifyd
 exec nzbget -D
 exec /usr/lib/kdeconnectd
 exec planner -s
