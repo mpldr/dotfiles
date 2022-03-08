@@ -163,6 +163,14 @@ alias pmake='time nice make -j$(grep -c "^processor" /proc/cpuinfo) --load-avera
 alias mpv='mpv --ytdl-format=bestaudio'
 alias gallery='feh -d . "-|"'
 
+function dcr() {
+	if [ "$1" = "" ]; then
+		docker-compose down && docker-compose up -d
+	else
+		docker-compose stop $1 && docker-compose start $1
+	fi
+}
+
 function gchr() {
 	if [ "$1" = "" ]; then
 		echo "Please provide a ref"
