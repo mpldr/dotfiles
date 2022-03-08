@@ -102,7 +102,9 @@ bindsym $mod+Return exec kitty -1
 bindsym $mod+d exec ulauncher --no-window-shadow
 bindsym $mod+Shift+w exec wofi-wifi-menu
 
-bindsym $mod+f fullscreen toggle 
+bindsym $mod+Shift+Tab exec swaync-client -t -sw
+
+bindsym $mod+f fullscreen toggle
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
