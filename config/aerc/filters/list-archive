@@ -1,0 +1,2 @@
+#!/bin/sh
+bsdtar -tf - | tree --fromfile=. --dirsfirst -C --filelimit 5 -L 3
