@@ -237,3 +237,6 @@ set viewoptions=cursor,folds,slash,unix
 let g:snipMate = { 'snippet_version' : 1 }
 
 imap <F4> <plug>snipMateNextOrTrigger
+
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
