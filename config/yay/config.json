@@ -25,7 +25,6 @@
 	"sudobin": "sudo",
 	"sudoflags": "",
 	"requestsplitn": 150,
-	"sortmode": 1,
 	"completionrefreshtime": 7,
 	"sudoloop": true,
 	"timeupdate": true,
