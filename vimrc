@@ -221,16 +221,7 @@ nmap gis :GoFillStruct<CR>
 
 nmap gF :e <cfile><cr>
 
-" and now to disable everything st can't handle
-if &term =~ '256color'
-	set t_ut=
-	let g:buffet_always_show_tabline = 0
-	"so… that does not work. if someone has a workaround, please send a
-	"patch
-	"colorscheme hybrid
-else
-	colorscheme sonokai
-endif
+colorscheme dracula_pro
 
 map [5~ <nop>
 map [6~ <nop>
