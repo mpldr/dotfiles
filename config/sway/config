@@ -3,8 +3,8 @@
 #################################################
 
 #output DP-2 position 1920,0 resolution 2560x1440 scale 1.125
-output DP-2 position 1920,0 resolution 2560x1440
-output DP-3 position 0,0    resolution 1920x1080
+output DP-3 position 1920,0 resolution 2560x1440
+output DP-2 position 0,0    resolution 1920x1080
 
 # start wob for an volume and brightness indication
 exec mkfifo /tmp/SWAYSOCK.wob && tail -f /tmp/SWAYSOCK.wob | wob
