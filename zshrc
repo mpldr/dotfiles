@@ -91,7 +91,7 @@ fi
 
 #ZSH-PLUGIN zsh-users/zsh-syntax-highlighting
 #ZSH-PLUGIN zpm-zsh/ssh
-#ZSH-PLUGIN zsh-users/zsh-history-substring-search
+##ZSH-PLUGIN zsh-users/zsh-history-substring-search
 #ZSH-PLUGIN qoomon/zsh-lazyload
 #ZSH-PLUGIN reobin/typewritten
 #ZSH-PLUGIN zsh-users/zsh-autosuggestions
@@ -111,8 +111,9 @@ grep '^#ZSH-PLUGIN ' < ~/.zshrc | sed 's/^#ZSH-PLUGIN //' | antibody bundle
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#888"
 
-AUTO_NOTIFY_IGNORE+=("docker" "vim" "sleep" "man" "delta" "less" "pulsemixer" 
-                     "vifm" "ssh" "pulsemixer" "ncdu" "aerc" "wf-recorder")
+AUTO_NOTIFY_IGNORE+=("docker" "vim" "sleep" "man" "delta" "less" "pulsemixer"
+                     "vifm" "ssh" "pulsemixer" "ncdu" "aerc" "wf-recorder"
+                     "zathura")
 
 plugins=(auto-notify $plugins)
 
@@ -136,7 +137,7 @@ alias gf='git fetch --tags'
 alias gc='git status --porcelain | grep '^M' > /dev/null 2>&1 || git commit -a'
 alias gch='git checkout'
 alias gchb='git checkout -b'
-alias push='git push --tags --follow-tags --signed=if-asked origin HEAD'
+alias push='git push --tags --follow-tags origin HEAD'
 alias pull='git pull --commit --autostash'
 alias ssh-restart='sudo sshd -t && (sudo systemctl reload sshd || sudo systemctl restart sshd)'
 alias nginx-restart='sudo nginx -t && (sudo systemctl reload nginx || sudo systemctl restart nginx)'
@@ -151,9 +152,9 @@ alias restart='sudo systemctl restart'
 alias status='sudo systemctl status'
 alias dcu='docker-compose up -d --remove-orphans'
 alias dcd='docker-compose down'
-alias dcr='dcd && dcu'
 alias dcl='docker-compose logs'
 alias dclf='docker-compose logs -f'
+alias dcp='docker-compose pull'
 alias R='sudo -i'
 alias pprof='go tool pprof -http=:8080'
 alias cover='go test -v -cover -trimpath -coverprofile /tmp/cover.prof && go tool cover -html /tmp/cover.prof -o /tmp/cover.html && xdg-open /tmp/cover.html'
@@ -161,7 +162,8 @@ alias todoist="todoist --color"
 alias present="urxvt -fn 'xft:Operator Mono Lig:pixelsize=24'"
 alias pmake='time nice make -j$(grep -c "^processor" /proc/cpuinfo) --load-average=$(grep -c "^processor" /proc/cpuinfo)'
 alias mpv='mpv --ytdl-format=bestaudio'
-alias gallery='feh -d . "-|"'
+alias gallery='feh --sort filename --version-sort "-|"'
+alias wl-sudo="sudo env XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR WAYLAND_SOCKET=$WAYLAND_SOCKET waylandapplication"
 
 function dcr() {
 	if [ "$1" = "" ]; then
@@ -198,7 +200,7 @@ function gpu-ffmpeg() {
 	ffmpeg -i "$1" -vaapi_device /dev/dri/renderD128 -vcodec hevc_vaapi -vf format='nv12|vaapi,hwupload' "$2"
 }
 
-fpath=(~/.zsh $fpath)
+fpath=(~/.zsh ~/.zsh/completion $fpath)
 
 compdef '_files -g "/home/moritz/*"' 'p'
 
@@ -238,12 +240,21 @@ function tag_release() {
 	git tag -f -a v$1 -m "$(cat /tmp/$r)"
 }
 
+upload(){ if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n transfer <file|directory>\n ... | transfer <file_name>">&2;return 1;fi;if tty -s;then file="$1";file_name=$(basename "$file");if [ ! -e "$file" ];then echo "$file: No such file or directory">&2;return 1;fi;if [ -d "$file" ];then file_name="$file_name.zip" ,;(cd "$file"&&zip -r -q - .)|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null,;else cat "$file"|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;}
+
+
 type exa  >/dev/null 2>&1 && alias ls='exa -l --git -s type' || alias ls='ls -ohGNp --color=always'
 type rg   >/dev/null 2>&1 && alias grep='rg -C 2 --line-number -L' || alias grep='grep --color=auto -n -C 2 -r'
-type fd   >/dev/null 2>&1 && alias find='fd' || alias fd='find'
-type mvg  >/dev/null 2>&1 && alias mv='mvg -g'
-type cpg  >/dev/null 2>&1 && alias cp='cpg -gr' || alias cp='cp -r'
-type slit >/dev/null 2>&1 && alias less='slit'
+type fd    >/dev/null 2>&1 && alias find='fd' || alias fd='find'
+type mvg   >/dev/null 2>&1 && alias mv='mvg -g'
+type cpg   >/dev/null 2>&1 && alias cp='cpg -gr' || alias cp='cp -r'
+type slit  >/dev/null 2>&1 && alias less='slit'
+type wget2 >/dev/null 2>&1 && alias wget='wget2 -c --progress=bar'
 [ $TERM = xterm-kitty ] && alias ssh='kitty +kitten ssh'
 
 type rclone >/dev/null 2>&1 && source <(rclone genautocomplete zsh /dev/stdout)
+type hugo >/dev/null 2>&1 && source <(hugo completion zsh)
+
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
