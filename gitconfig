@@ -59,3 +59,5 @@
 [filter "cssfmt"]
 	smudge = cat
 	clean = yarn run -s prettier --parser css --use-tabs --print-width 100 --end-of-line lf
+[tag]
+	sort=-v:refname
