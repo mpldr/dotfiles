@@ -41,7 +41,7 @@ block = "net"
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{Mug}GiB/{MTg}GiB ({Mup}%)"
+format_mem = "{mem_avail}GiB/{mem_total}GiB ({mem_avail_percents}%)"
 
 [[block]]
 block = "cpu"
@@ -50,13 +50,6 @@ interval = 1
 [[block]]
 block = "sound"
 driver = "pulseaudio"
-
-#[[block]]
-#block = "pomodoro"
-#length = 25
-#break_length = 5
-#message = "Zeit für eine Pause!"
-#break_message = "Zurück an die Arbeit!"
 
 [[block]]
 block = "time"
