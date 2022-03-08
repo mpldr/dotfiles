@@ -34,7 +34,7 @@ input * {
 	# German Keyboard Layout please
 	xkb_layout de,us(dvp)
 	# and disable this damn useless key
-	xkb_options caps:none,grp:shifts_toggle,grp_led:caps 
+	xkb_options caps:none,grp:shifts_toggle,grp_led:caps
 	# toggle keyboard layout by pressing both shifts
 	# indicate alternative layout with capslock LED
 }
@@ -195,11 +195,12 @@ mode "nag" {
 
 bindsym $mod+Shift+q kill
 
-set $mode_system System (l)ock, (e)xit, (r)eboot, (s)hutdown
+set $mode_system System (l)ock, (e)xit, (r)eboot, (s)hutdown, (h)ibernate
 mode "$mode_system" {
 		bindsym e exec swaymsg exit, mode "default"
 		bindsym r exec systemctl reboot, mode "default"
 		bindsym s exec systemctl poweroff -i, mode "default"
+		bindsym h exec systemctl hybrid-sleep, mode "default"
 
 # back to normal: Enter or Escape
 		bindsym Return mode "default"
@@ -218,7 +219,7 @@ set $ws4 "4 "
 set $ws5 "5 "
 set $ws6 "6 "
 set $ws7 "7 "
-set $ws8 "8 "
+set $ws8 "8 "
 set $ws9 "9"
 set $ws0 "10 "
 
