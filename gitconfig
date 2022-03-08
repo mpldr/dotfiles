@@ -47,3 +47,15 @@
 	hooksPath = /home/moritz/.githooks
 [advice]
 	detachedHead = false
+[filter "gofmt"]
+	smudge = cat
+	clean = gofumpt -s
+[filter "vuefmt"]
+	smudge = cat
+	clean = yarn run -s prettier --parser vue --use-tabs --print-width 100 --end-of-line lf
+[filter "jsfmt"]
+	smudge = cat
+	clean = yarn run -s prettier --parser babel --use-tabs --print-width 100 --end-of-line lf
+[filter "cssfmt"]
+	smudge = cat
+	clean = yarn run -s prettier --parser css --use-tabs --print-width 100 --end-of-line lf
