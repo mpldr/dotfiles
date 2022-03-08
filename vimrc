@@ -233,10 +233,14 @@ let g:livepreview_previewer = 'zathura'
 " restore cursor positions and folding
 set viewoptions=cursor,folds,slash,unix
 " let g:skipview_files = ['*\.vim']
- 
+
 let g:snipMate = { 'snippet_version' : 1 }
 
 imap <F4> <plug>snipMateNextOrTrigger
 
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
+
+set updatetime=500
+set balloondelay=250
+set signcolumn=yes
