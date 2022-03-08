@@ -72,7 +72,7 @@ set lbr
 
 if empty(glob("~/.vim/autoload/plug.vim"))
   silent! execute '!curl --create-dirs -fsSLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-  execute '!sudo pacman -Syu go cmake python base-devel nodejs npm --noconfirm'
+  execute '!sudo pacman -Syu go cmake python base-devel nodejs npm cmake python-pynvim --noconfirm'
   autocmd VimEnter * silent! PlugInstall
 endif
 
@@ -81,7 +81,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Go Toolchain
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' , 'for': 'go'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go'}
 
 " unclutter markdown editing
 Plug 'junegunn/goyo.vim', { 'for': ['markdown', 'md'] }
