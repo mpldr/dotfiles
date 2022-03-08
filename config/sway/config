@@ -112,8 +112,8 @@ bindsym $mod+space focus mode_toggle
 
 bindsym $mod+Shift+r exec swaymsg reload
 
-bindsym Print exec bash -c 'cd ~/Pictures/Screenshots/ && grim -g "$(slurp)" -t png'
-bindsym Shift+Print exec bash -c 'cd ~/Pictures/Screenshots/ && grim -t png'
+bindsym Print exec bash -c 'grim -g "$(slurp)" -t png -l 9 ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
+bindsym Shift+Print exec bash -c 'grim -t png -l 9 ~/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss).png'
 bindsym Ctrl+Print exec farge
 bindsym Ctrl+Shift+Print exec dash -c 'pgrep wf-recorder && pkill -2 wf-recorder || wf-recorder --muxer=v4l2 --codec=rawvideo -x yuv420p -o DP-3 --file=/dev/video0'
 
