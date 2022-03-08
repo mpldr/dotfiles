@@ -78,7 +78,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 " Theme
-Plug 'sainnhe/sonokai'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Go Toolchain
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' , 'for': 'go'}
@@ -120,13 +120,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'chrisbra/colorizer'
 
 " Code Completion, heavy af but sooo comfy
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer --ts-completer --rust-completer', 'for': ['go', 'js', 'rs']}
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer --ts-completer --rust-completer', 'for': ['go', 'js', 'rs', 'c']}
 
 " saving cursor positions and folding information
 Plug 'vim-scripts/restore_view.vim'
 
 " for presentations at work I use st which is not so happy with true color
 Plug 'w0ng/vim-hybrid'
+
+Plug 'cespare/vim-toml', {'for': ['toml']}
 
 " Format text for documentation
 Plug 'vim-scripts/TextFormat'
@@ -146,9 +148,8 @@ call plug#end()
 
 " apply theme
 set termguicolors
-let g:sonokai_style                      = 'maia'
-let g:sonokai_transparent_background     = 1
-let g:airline_theme                      = 'sonokai'
+let g:dracula_colorterm = 0
+let g:airline_theme                      = 'dracula'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts            = 1
 
