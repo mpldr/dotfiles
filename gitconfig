@@ -5,7 +5,7 @@
 	smudge   = git-lfs smudge -- %f
 [user]
 	name             = Moritz Poldrack
-	email            = ich@moritz-poldrack.de
+	email            = git@moritz.sh
 [credential]
 	helper           = cache --timeout=31557600
 [pull]
@@ -33,12 +33,12 @@
 	sslVerify = false
 [sendemail]
 	chainReplyTo       = true
-	from               = Moritz Poldrack <ich@moritz-poldrack.de>
+	from               = Moritz Poldrack <moritz@poldrack.dev>
 	assume8bitEncoding = utf-8
 	smtpEncryption     = tls
-	smtpServer         = mail.moritz-poldrack.de
+	smtpServer         = mail.moritz.sh
 	smtpServerPort     = 587
-	smtpUser           = ich@moritz-poldrack.de
+	smtpUser           = moritz@poldrack.dev
 	annotate = true
 	confirm = auto
 [rerere]
