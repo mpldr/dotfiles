@@ -1,2 +1,6 @@
-[user]
-	email = mp@meso.biz
+[url "git@github.com:Vertragswerk/"]
+	insteadOf=https://github.com/Vertragswerk
+
+[url "git@github.com:vertragswerk/"]
+	insteadOf=https://github.com/vertragswerk
+
