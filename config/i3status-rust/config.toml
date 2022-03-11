@@ -41,7 +41,7 @@ block = "net"
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{mem_avail}GiB/{mem_total}GiB ({mem_avail_percents}%)"
+format_mem = "{mem_avail}/{mem_total} ({mem_avail_percents})"
 
 [[block]]
 block = "cpu"
