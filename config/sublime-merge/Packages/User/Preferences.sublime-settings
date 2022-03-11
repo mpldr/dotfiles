@@ -13,4 +13,7 @@
 	"editor_argument_format": "${file} +${line}:${col}",
 	"editor_path": "kitty vim",
 	"time_format": "24h",
+	"git_env": {
+		"SSH_AUTH_SOCK": "/run/user/1000/ssh-agent.sock",
+	}
 }
