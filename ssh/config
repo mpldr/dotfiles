@@ -1,0 +1,55 @@
+VerifyHostKeyDNS yes
+
+Host hekate
+	User           moritz
+	HostName       hekate.moritz.sh
+	IdentitiesOnly yes
+	IdentityFile   ~/.ssh/fingerprints/hekate.moritz.sh.pub
+	Port           22
+
+Host charon
+	User           moritz
+	HostName       charon.moritz.sh
+	IdentitiesOnly yes
+	IdentityFile   ~/.ssh/fingerprints/charon.moritz.sh.pub
+	Port           22
+
+Host pan
+	User           moritz
+	HostName       pan.moritz.sh
+	IdentitiesOnly yes
+	IdentityFile   ~/.ssh/fingerprints/pan.moritz.sh.pub
+	Port           22
+
+Host triton
+	User           moritz
+	HostName       triton.moritz.sh
+	IdentitiesOnly yes
+	IdentityFile   ~/.ssh/fingerprints/triton.moritz.sh.pub
+	Port           22
+
+Host helios
+	User           moritz
+	HostName       helios.moritz.sh
+	IdentitiesOnly yes
+	IdentityFile   ~/.ssh/fingerprints/helios.moritz.sh.pub
+	Port           22
+
+Host phobos
+	User           moritz
+	HostName       phobos.moritz.sh
+	IdentitiesOnly yes
+	IdentityFile   ~/.ssh/fingerprints/phobos.moritz.sh.pub
+	Port           22
+
+Host git.sr.ht
+	User           moritz
+	HostName       git.sr.ht
+	IdentitiesOnly yes
+	IdentityFile   ~/.ssh/fingerprints/sr.ht.pub
+	Port           22
+
+Host frank
+	User moritz
+	HostName fh.45n43b.xyz
+	Port 2222
