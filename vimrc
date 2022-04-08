@@ -176,6 +176,10 @@ nnoremap <F4> :buffers<cr>:buffer<Space>
 nnoremap gln :lnext<cr>
 nnoremap glp :lprev<cr>
 nnoremap gll :ll<cr>
+nnoremap gc<down> :cn<cr>
+nnoremap gc<up> :cp<cr>
+nnoremap gcg :cfirst<cr>
+nnoremap gcG :clast<cr>
 
 " define git-shortcuts
 map gb  :b#<cr>
