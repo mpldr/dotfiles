@@ -111,9 +111,28 @@ grep '^#ZSH-PLUGIN ' < ~/.zshrc | sed 's/^#ZSH-PLUGIN //' | antibody bundle
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#888"
 
-AUTO_NOTIFY_IGNORE+=("docker" "vim" "sleep" "man" "delta" "less" "pulsemixer"
-                     "vifm" "ssh" "pulsemixer" "ncdu" "aerc" "wf-recorder"
-                     "zathura")
+export AUTO_NOTIFY_THRESHOLD=30
+export AUTO_NOTIFY_EXPIRE_TIME=300
+export AUTO_NOTIFY_IGNORE=(
+	"aerc"
+	"delta"
+	"docker"
+	"git commit"
+	"git rebase -i"
+	"htop"
+	"less"
+	"man"
+	"ncdu"
+	"pulsemixer"
+	"pulsemixer"
+	"sleep"
+	"ssh"
+	"torsocks"
+	"vifm"
+	"vim"
+	"wf-recorder"
+	"zathura"
+)
 
 plugins=(auto-notify $plugins)
 
