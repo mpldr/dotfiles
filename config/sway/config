@@ -132,7 +132,8 @@ bindsym $mod+x [urgent=latest] focus
 exec waybar
 
 bar {
-	status_command i3status-rs
+status_command i3status-rs
+  font pango:Operator Mono Lig,Font Awesome 6 Pro
 }
 
 #################################################
