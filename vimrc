@@ -59,7 +59,11 @@ set tabstop=8
 set noexpandtab
 
 " folding is useful
-set foldmethod=marker
+set foldlevel=99
+augroup vimrc
+  au BufReadPre * setlocal foldmethod=indent
+  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+augroup END
 
 " don't mess with my code.
 set textwidth=0
