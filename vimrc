@@ -144,9 +144,7 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'Thyrum/vim-stabs'
 
 " Snippets
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 call plug#end()
 
@@ -238,9 +236,9 @@ let g:livepreview_previewer = 'zathura'
 set viewoptions=cursor,folds,slash,unix
 " let g:skipview_files = ['*\.vim']
 
-let g:snipMate = { 'snippet_version' : 1 }
-
-imap <F4> <plug>snipMateNextOrTrigger
+let g:UltiSnipsExpandTrigger="<c-space>"
+let g:UltiSnipsJumpForwardTrigger="<c-space>"
+let g:UltiSnipsEditSplit="vertical"
 
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
