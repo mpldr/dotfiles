@@ -294,7 +294,9 @@ assign     [app_id="org.qutebrowser.qutebrowser"] $ws4
 for_window [app_id="org.qutebrowser.qutebrowser"] layout tabbed
 assign     [app_id="librewolf"]                   $ws4
 for_window [app_id="librewolf"]                   layout tabbed
-assign     [class="org-mode"]                     $ws8
+assign     [app_id="org-mode"]                    $ws8
+assign     [app_id="comm-terminal"]               $ws3
+for_window [app_id="comm-terminal"]               layout tabbed
 
 for_window [app_id="galculator"]        floating enable
 for_window [class="feh"]                floating enable
