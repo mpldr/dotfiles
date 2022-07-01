@@ -32,7 +32,7 @@
 [http]
 	sslVerify = false
 [sendemail]
-	chainReplyTo       = true
+	chainreplyto       = false
 	from               = Moritz Poldrack <moritz@poldrack.dev>
 	assume8bitEncoding = utf-8
 	smtpEncryption     = tls
