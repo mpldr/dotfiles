@@ -6,6 +6,7 @@ Host hekate
 	IdentitiesOnly yes
 	IdentityFile   ~/.ssh/fingerprints/hekate.moritz.sh.pub
 	Port           22
+	ControlPath    ~/.ssh/hekate.ctl
 
 Host charon
 	User           moritz
@@ -42,9 +43,7 @@ Host phobos
 	IdentityFile   ~/.ssh/fingerprints/phobos.moritz.sh.pub
 	Port           22
 
-Host git.sr.ht
-	User           moritz
-	HostName       git.sr.ht
+Host git.sr.ht, github.com
 	IdentitiesOnly yes
 	IdentityFile   ~/.ssh/fingerprints/sr.ht.pub
 	Port           22
@@ -53,3 +52,4 @@ Host frank
 	User moritz
 	HostName fh.45n43b.xyz
 	Port 2222
+
