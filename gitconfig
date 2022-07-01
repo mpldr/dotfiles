@@ -14,7 +14,7 @@
 	gpgsign          = true
 [init]
 	defaultBranch    = master
-	templatedir = /home/moritz/.git-templates
+	templatedir      = /home/moritz/.git-templates
 [merge]
 	ff               = false
 	directoryRenames = true
@@ -39,8 +39,8 @@
 	smtpServer         = mail.moritz.sh
 	smtpServerPort     = 587
 	smtpUser           = moritz@poldrack.dev
-	annotate = true
-	confirm = auto
+	annotate           = true
+	confirm            = auto
 [rerere]
 	enabled = 1
 [core]
