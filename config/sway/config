@@ -16,6 +16,7 @@ exec mako
 exec keepassxc
 exec autotiling
 exec nzbget -D
+exec udiskie
 exec /usr/lib/kdeconnectd
 exec planner -s
 exec swaync
