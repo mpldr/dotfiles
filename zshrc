@@ -93,6 +93,13 @@ fi
 #bindkey    "\e[H"     beginning-of-line
 #bindkey    "\e[F"     end-of-line
 
+# add notify-send support on SSH connections
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+	notify-send() {
+		printf "\x1b]777;notify;$1;$2\a"
+	}
+fi
+
 #ZSH-PLUGIN zsh-users/zsh-syntax-highlighting
 #ZSH-PLUGIN zpm-zsh/ssh
 ##ZSH-PLUGIN zsh-users/zsh-history-substring-search
