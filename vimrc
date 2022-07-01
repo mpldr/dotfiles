@@ -192,7 +192,7 @@ map gpl :Git pull<cr>
 map gps :Git push<cr>
 
 autocmd BufWritePre *.go,*.c,*.cpp,*.h,*.js,*.css,*.tex,*.php :silent Autoformat
-autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufWritePre * :%s/\s\+$//e
 
 " Setup Buffer overview
 let g:buffet_powerline_separators = 1
