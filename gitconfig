@@ -7,7 +7,8 @@
 	name             = Moritz Poldrack
 	email            = git@moritz.sh
 [credential]
-	helper           = cache --timeout=31557600
+	helper           = store
+	credentialStore  = secretservice
 [pull]
 	rebase           = true
 [commit]
