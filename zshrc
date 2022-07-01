@@ -1,3 +1,7 @@
+if [[ "$ZPROF" = true ]]; then
+	zmodload zsh/zprof
+fi
+
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _expand _complete _ignored _match _correct _approximate _prefix
@@ -276,5 +280,9 @@ type rclone >/dev/null 2>&1 && source <(rclone genautocomplete zsh /dev/stdout)
 type hugo >/dev/null 2>&1 && source <(hugo completion zsh)
 
 if [[ ! "$SSH_AUTH_SOCK" ]]; then
-    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+	source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
+
+if [[ "$ZPROF" = true ]]; then
+	zprof
 fi
