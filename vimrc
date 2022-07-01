@@ -146,6 +146,9 @@ Plug 'Thyrum/vim-stabs'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+" Add Bookmarks to code
+Plug 'MattesGroeger/vim-bookmarks'
 call plug#end()
 
 " apply theme
@@ -250,3 +253,9 @@ vnoremap <Space> zf
 set updatetime=500
 set balloondelay=250
 set signcolumn=yes
+
+let g:bookmark_sign                 = ''
+let g:bookmark_annotation_sign      = ''
+let g:bookmark_highlight_lines      = 1
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_display_annotation   = 1
