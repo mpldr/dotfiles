@@ -215,6 +215,7 @@ alias mpv='mpv --ytdl-format=bestaudio'
 alias gallery='feh --sort filename --version-sort "-|"'
 alias wl-sudo="sudo env XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR WAYLAND_SOCKET=$WAYLAND_SOCKET waylandapplication"
 alias tb="nv termbin.com 9999"
+alias vnwine="LANG=ja_JP.UTF-8 WINEPREFIX=$(pwd)/prefix WINEARCH=win64 wine"
 
 function dcr() {
 	if [ "$1" = "" ]; then
