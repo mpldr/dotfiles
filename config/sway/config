@@ -144,7 +144,7 @@ status_command i3status-rs
 # set a wallpaper so we can look at something while awaiting startup
 output "*" bg ~/.wallpaper fill
 
-seat seat0 xcursor_theme Bibata-Modern-Classic 14
+seat seat0 xcursor_theme Bibata-Original-Classic 14
 
 set $uifont "Operator Mono Book 14"
 
