@@ -1,0 +1,11 @@
+account default
+host mail.moritz.sh
+port 587
+from moritz@poldrack.dev
+user moritz@poldrack.dev
+passwordeval secret-tool lookup Title Mailserver
+auth on
+tls on
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile /home/moritz/.config/msmtp/msmtp.log
+
