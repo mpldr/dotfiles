@@ -36,12 +36,9 @@
 	chainreplyto       = false
 	from               = Moritz Poldrack <moritz@poldrack.dev>
 	assume8bitEncoding = utf-8
-	smtpEncryption     = tls
-	smtpServer         = mail.moritz.sh
-	smtpServerPort     = 587
-	smtpUser           = moritz@poldrack.dev
 	annotate           = true
 	confirm            = auto
+	sendmailcmd        = msmtpq
 [rerere]
 	enabled = 1
 [core]
