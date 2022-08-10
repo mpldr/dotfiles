@@ -257,6 +257,7 @@ type mvg   >/dev/null 2>&1 && alias mv='mvg -g'
 type cpg   >/dev/null 2>&1 && alias cp='cpg -gr' || alias cp='cp -r'
 type slit  >/dev/null 2>&1 && alias less='slit'
 type wget2 >/dev/null 2>&1 && alias wget='wget2 -c --progress=bar'
+type nvim  >/dev/null 2>&1 && alias vim='nvim'
 [ $TERM = xterm-kitty ] && alias ssh='kitty +kitten ssh'
 
 type rclone >/dev/null 2>&1 && source <(rclone genautocomplete zsh /dev/stdout)
