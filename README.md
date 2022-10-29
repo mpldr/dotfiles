@@ -15,7 +15,7 @@ first, you need [rcm](https://github.com/thoughtbot/rcm)
 then you can run (untested)
 ```sh
 git clone https://git.sr.ht/~poldi1405/dotfiles ~/.dotfiles
-rcup
+rcup -B $(cat /etc/hostname)
 ``` 
 
 ## Dependencies/Requirements
