@@ -263,6 +263,10 @@ type nvim  >/dev/null 2>&1 && alias vim='nvim'
 type rclone >/dev/null 2>&1 && source <(rclone genautocomplete zsh /dev/stdout)
 type hugo >/dev/null 2>&1 && source <(hugo completion zsh)
 
+if [[ -f ~/.zshrc.host ]]; then
+	source ~/.zshrc.host
+fi
+
 if [[ ! "$SSH_AUTH_SOCK" ]]; then
 	source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
