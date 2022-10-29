@@ -217,6 +217,7 @@ mode "$mode_system" {
 		bindsym Escape mode "default"
 }
 bindsym $mod+Escape mode "$mode_system"
+bindsym $mod+Pause mode "$mode_system"
 swaynag_command $nag -R
 
 ################################################
