@@ -46,6 +46,8 @@ input type:touchpad {
 	natural_scroll disabled
 }
 
+xwayland enable
+
 # enable numlock
 input * xkb_numlock enable
 
