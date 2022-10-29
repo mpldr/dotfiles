@@ -60,6 +60,7 @@ bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > /tmp
 bindsym XF86AudioPlay         exec playerctl     play-pause
 bindsym XF86AudioNext         exec playerctl     next
 bindsym XF86AudioPrev         exec playerctl     previous
+bindsym XF86Calculator        exec firefox
 
 ########## Shortcuts ###########
 
