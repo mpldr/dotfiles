@@ -67,3 +67,5 @@
 	writeCommitGraph = true
 [tag]
 	sort=-v:refname
+[rebase]
+	autoSquash = true
