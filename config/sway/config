@@ -4,6 +4,28 @@
 
 include output.conf
 
+exec ( \
+	which autotiling && \
+	which dash && \
+	which farge && \
+	which firefox && \
+	which grim && \
+	which i3status-rust \
+	which imv && \
+	which keepassxc && \
+	which light && \
+	which mako && \
+	which pamixer && \
+	which playerctl && \
+	which slurp && \
+	which sway-launcher-desktop && \
+	which swayidle && \
+	which udiskie && \
+	which wf-recorder && \
+	which wob && \
+	which wofi-wifi-menu \
+	) || kitty -T "SWAY SETUP WIZARD" "(which yay || cd /tmp; git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si) && yay -Syu autotiling dash farge firefox grim i3status-rust imv keepassxc light make pamixer playerctl slurp sway-launcher-desktop swayidle udiskie wf-recorder wob wofi-wifi-menu --noconfirm"
+
 # start wob for an volume and brightness indication
 exec mkfifo /tmp/SWAYSOCK.wob && tail -f /tmp/SWAYSOCK.wob | wob
 exec xhost +SI:localuser:root # for allowing sudo windows
