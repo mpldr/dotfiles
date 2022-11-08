@@ -39,7 +39,6 @@ exec nzbget -D
 exec udiskie
 exec /usr/lib/kdeconnectd
 exec planner -s
-exec swaync
 exec ydotoold
 exec dash -c 'sleep 5; ~/.config/sway/scripts/startup.sh'
 exec dash -c 'while true; do echo $(yay -Qu --repo | wc -l)+$(yay -Qua | wc -l) > /tmp/pending_updates; sleep 60; done'
@@ -129,8 +128,6 @@ set $menu exec kitty -1 --class=launcher -e bash sway-launcher-desktop
 bindsym $mod+d exec $menu
 #bindsym $mod+d exec ulauncher --no-window-shadow
 bindsym $mod+Shift+w exec wofi-wifi-menu
-
-bindsym $mod+Shift+Tab exec swaync-client -t -sw
 
 bindsym $mod+f fullscreen toggle
 # toggle tiling / floating
