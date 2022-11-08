@@ -155,7 +155,7 @@ exec waybar
 
 bar {
 status_command i3status-rs
-  font pango:Operator Mono Lig,Font Awesome 6 Pro
+	font pango:Operator Mono Lig,Font Awesome 6 Pro
 }
 
 #################################################
