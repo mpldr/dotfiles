@@ -205,6 +205,7 @@ bindsym $mod+Shift+q kill
 
 set $mode_system System (l)ock, (e)xit, (r)eboot, (s)hutdown, (h)ibernate
 mode "$mode_system" {
+		bindsym l exec loginctl lock-session 2, mode "default"
 		bindsym e exec swaymsg exit, mode "default"
 		bindsym r exec systemctl reboot, mode "default"
 		bindsym s exec systemctl poweroff -i, mode "default"
