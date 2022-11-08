@@ -48,6 +48,10 @@ Host git.sr.ht, github.com
 	IdentityFile   ~/.ssh/fingerprints/sr.ht.pub
 	Port           22
 
+Host aur aur.archlinux.org
+    User aur
+    Hostname aur.archlinux.org
+
 Host frank
 	User moritz
 	HostName fh.45n43b.xyz
