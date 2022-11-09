@@ -272,7 +272,7 @@ if [[ -f ~/.zshrc.host ]]; then
 fi
 
 if [[ ! "$SSH_AUTH_SOCK" ]]; then
-	source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+	source "$XDG_RUNTIME_DIR/ssh-agent.env" &>/dev/null
 fi
 
 if [[ "$ZPROF" = true ]]; then
