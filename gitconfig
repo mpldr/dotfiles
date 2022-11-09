@@ -4,37 +4,34 @@
 	clean    = git-lfs clean -- %f
 	smudge   = git-lfs smudge -- %f
 [user]
-	name             = Moritz Poldrack
-	email            = git@moritz.sh
+	name  = Moritz Poldrack
+	email = git@moritz.sh
 [credential]
-	helper           = store
-	credentialStore  = secretservice
+	helper          = store
+	credentialStore = secretservice
+[fetch]
+	prunt = true
+	parallel = 0
 [pull]
-	rebase           = true
-[commit]
-	gpgsign          = true
+	rebase = true
+[submodule]
+	fetchJobs = 0
 [init]
-	defaultBranch    = master
-	templatedir      = /home/moritz/.git-templates
+	defaultBranch = master
 [merge]
 	ff               = false
 	directoryRenames = true
 	tool             = vimdiff
 	guitool          = smerge
 [diff]
-	renames          = true
+	renames = true
 [format]
-	signoff          = true
-[include]
-	path             = .gitconfig.local
+	signoff = true
 
 [includeIf "gitdir:Projects/Arbeit/"]
 	path             = .gitconfig.work
-[http]
-	sslVerify = false
 [sendemail]
 	chainreplyto       = false
-	from               = Moritz Poldrack <moritz@poldrack.dev>
 	assume8bitEncoding = utf-8
 	annotate           = true
 	confirm            = auto
@@ -42,30 +39,43 @@
 [rerere]
 	enabled = 1
 [core]
-	hooksPath = /home/moritz/.githooks
-	quotePath = false
+	hooksPath   = /home/moritz/.githooks
+	quotePath   = false
 	commitGraph = true
 [advice]
-	detachedHead = false
+	detachedHead   = false
 	addIgnoredFile = false
-[filter "gofmt"]
-	smudge = cat
-	clean = gofumpt -s
-[filter "vuefmt"]
-	smudge = cat
-	clean = yarn run -s prettier --parser vue --use-tabs --print-width 100 --end-of-line lf
-[filter "jsfmt"]
-	smudge = cat
-	clean = yarn run -s prettier --parser babel --use-tabs --print-width 100 --end-of-line lf
-[filter "cssfmt"]
-	smudge = cat
-	clean = yarn run -s prettier --parser css --use-tabs --print-width 100 --end-of-line lf
 [receive]
 	advertisePushOptions = true
-	procReceiveRefs = refs/for
+	procReceiveRefs      = refs/for
 [gc]
 	writeCommitGraph = true
 [tag]
 	sort=-v:refname
 [rebase]
 	autoSquash = true
+	autoStash  = true
+[color]
+	branch = auto
+	diff   = auto
+	status = auto
+[color "branch"]
+	current = yellow reverse
+	local   = yellow 
+	remote  = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old  = red bold
+	new  = green bold
+[color "status"]
+	added     = yellow
+	changed   = green
+	untracked = cyan
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	lgn = "!f() { git log --graph --pretty=format:'%Cred%H%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative $@ | git name-rev --stdin --name-only ; } ; f"
+[help]
+	autocorrect = "prompt"
+[include]
+	path = .gitconfig.host

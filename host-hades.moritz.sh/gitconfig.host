@@ -1,0 +1,6 @@
+[commit]
+	gpgSign = true
+[tag]
+	gpgSign = true
+[sendemail]
+	from = Moritz Poldrack <moritz@poldrack.dev>
