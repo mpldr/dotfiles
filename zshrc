@@ -271,8 +271,9 @@ if [[ -f ~/.zshrc.host ]]; then
 	source ~/.zshrc.host
 fi
 
-if [[ ! "$SSH_AUTH_SOCK" ]]; then
-	source "$XDG_RUNTIME_DIR/ssh-agent.env" &>/dev/null
+if [[ $(pgrep ssh-agent) && -S "$XDG_RUNTIME_DIR/ssh-agent.sock" ]]; then
+	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock"
+	export SSH_AGENT_PID="$(pgrep ssh-agent | head -1)"
 fi
 
 if [[ "$ZPROF" = true ]]; then
