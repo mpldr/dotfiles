@@ -68,6 +68,22 @@ vim.api.nvim_set_keymap('n', '<s-right>', ':wincmd l<cr>', { noremap = true, sil
 -- strings used in list mode
 -- vim.opt.listchars = 'eol:↲,tab:→,trail:·,extends:▶,precedes:◀'
 
+-- restore cursor position
+local function restore_cursor()
+	if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
+		vim.cmd("normal! g'\"")
+	end
+end
+vim.api.nvim_create_autocmd({"BufReadPost"}, { callback = restore_cursor })
+
+-- start git commits and rebases in insert mode
+vim.api.nvim_create_augroup("bufcheck", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+	group = "bufcheck",
+	pattern = { "gitcommit" },
+	command = "startinsert | 1",
+})
+
 require('plugins')
 require('plugin_theme')
 require('plugin_completion') -- also for snippets
