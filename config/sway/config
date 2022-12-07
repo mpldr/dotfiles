@@ -342,3 +342,4 @@ for_window [window_role="pop-up"]       floating enable
 for_window [window_role="task_dialog"]  floating enable
 for_window [title="Preferences$"]       floating enable
 for_window [title="Picture-in-Picture"] floating enable
+for_window [title="imv .*"]             floating enable
