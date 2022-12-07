@@ -77,6 +77,9 @@ return require('packer').startup({function(use)
 	use { 'Shougo/neosnippet.vim' }
 	use { 'Shougo/neosnippet-snippets' }
 
+	use { 'nvim-lua/plenary.nvim' }
+	use { 'ThePrimeagen/harpoon' }
+
 	if packer_bootstrap then
 		require('packer').sync()
 	end
