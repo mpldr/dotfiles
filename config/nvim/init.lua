@@ -17,6 +17,8 @@ vim.api.nvim_set_keymap("n", "<PageDown>", "<nop>", {})
 -- clear highlights on enter and escape
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 vim.api.nvim_set_keymap("n", "<Esc>", ":noh<CR>", {silent = true})
 vim.api.nvim_set_keymap("n", "<CR>", ":noh<CR>", {silent = true})
 
