@@ -10,6 +10,10 @@ vim.api.nvim_set_keymap("n", "tz", ":bn<CR>", {})
 vim.api.nvim_set_keymap("n", "tc", ":bd<CR>", {})
 vim.api.nvim_set_keymap("n", "-", ":Explore<CR>", {})
 
+-- disable those useless shits
+vim.api.nvim_set_keymap("n", "<PageUp>", "<nop>", {})
+vim.api.nvim_set_keymap("n", "<PageDown>", "<nop>", {})
+
 -- clear highlights on enter and escape
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
