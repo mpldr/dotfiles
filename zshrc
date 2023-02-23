@@ -109,7 +109,7 @@ autoload -Uz _zinit
 zinit load reobin/typewritten
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
-zinit light zpm-zsh/ssh
+[ -z $SSH_CLIENT ] || zinit light zpm-zsh/ssh
 zinit light MichaelAquilina/zsh-auto-notify
 zinit light arzzen/calc.plugin.zsh
 zinit light zpm-zsh/colorize
