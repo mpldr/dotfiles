@@ -79,3 +79,6 @@
 	autocorrect = "prompt"
 [include]
 	path = .gitconfig.host
+[pretty]
+	fixes = Fixes: %h (\"%s\")
+	lineauthor = %C(auto)%h %C(auto,cyan)%ad %C(auto,magenta)%<(14,trunc)%an%C(auto)%d %C(auto,reset)%s%C(auto,cyan) %(trailers:key=Acked-by,key=Reviewed-by,key=Tested-by,unfold,separator=%x2C )%C(auto,reset)
