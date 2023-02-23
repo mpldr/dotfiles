@@ -62,6 +62,11 @@ return require('packer').startup({function(use)
 	}
 
 	use {
+		'codelitt/vim-qtpl',
+		ft = {'qtpl'},
+	}
+
+	use {
 		'SirVer/ultisnips',
 		ft = {'go'}
 	}
