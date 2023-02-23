@@ -1,11 +1,12 @@
 [theme]
-name = "slick"
+theme = "modern"
 #[theme.overrides]
 #separator = ""
 
 [icons]
-name = "awesome"
+icons = "awesome6"
 [icons.overrides]
+cogs = " "
 backlight_empty = "  "
 backlight_partial1 = "  "
 backlight_partial2 = "  "
@@ -21,7 +22,7 @@ time = "  "
 
 [[block]]
 block = "load"
-format = "{1m} {5m}"
+format = "$icon $1m.eng(w:3) $5m.eng(w:3) "
 
 # i3status-rust currently does not process database updates correctly.
 # # currently yay is not compilable with pacman-git. So we are stuck without the
@@ -29,19 +30,31 @@ format = "{1m} {5m}"
 [[block]]
 block = "pacman"
 interval = 300
-format = "{pacman}+{aur}"
+format = "$icon $pacman+$aur "
 format_up_to_date = "0"
 critical_updates_regex = "(linux|linux-lts|linux-zen|linux-amd|linux-ck|firefox|sudo|librewolf|linux-amd|curl|doas|systemd)"
 aur_command = "yay -Qua"
-on_click = "yay -Qu --dbpath /tmp/checkup-db-moritz/ | wofi --show dmenu"
+[[block.click]]
+button = "right"
+update = true
 
 [[block]]
 block = "net"
 
 [[block]]
+block = "notify"
+driver = "swaync"
+format = "$icon {$notification_count |}"
+[[block.click]]
+button = "left"
+action = "show"
+[[block.click]]
+button = "right"
+action = "toggle_paused"
+
+[[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "{mem_used}/{mem_total} ({mem_avail_percents})"
+format = "$icon $mem_used.eng(w:3)/$mem_total.eng(w:3) ($mem_avail_percents) "
 
 [[block]]
 block = "cpu"
@@ -57,6 +70,6 @@ driver = "upower"
 
 [[block]]
 block = "time"
-format = "%d.%m.%Y %H:%M:%S"
+format = "$icon $timestamp.datetime(f:'%d.%m.%Y %H:%M:%S ')"
 interval = 1
 
