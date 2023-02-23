@@ -9,6 +9,7 @@ export LC_MESSAGES=C
 export GPG_TTY=$(tty)
 export MAKEFLAGS="-j 16"
 export DOCKER_BUILDKIT=1
+export EDITOR=nvim
 
 # general settings
 export GOPROXY=direct

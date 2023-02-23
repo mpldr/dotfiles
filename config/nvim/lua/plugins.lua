@@ -2,6 +2,8 @@ local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
 	packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+	-- fn.system({'yay', '-Syu', 'go', 'shellcheck', 'python', '--noconfirm'})
+	vim.cmd("terminal yay -Syu go shellcheck python --noconfirm")
 end
 
 vim.cmd([[
@@ -84,8 +86,15 @@ return require('packer').startup({function(use)
 
 	use { 'ThePrimeagen/vim-be-good' }
 
+	use { 'lambdalisue/suda.vim' }
+
+	use { 'tpope/vim-dadbod' }
+	use { 'tpope/vim-commentary' }
+	use { 'tommcdo/vim-lion' }
+
 	if packer_bootstrap then
 		require('packer').sync()
+		vim.fn.PackerInstall()
 	end
 end,
 config = {

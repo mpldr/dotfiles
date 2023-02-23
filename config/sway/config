@@ -29,9 +29,9 @@ exec ( \
 # start wob for an volume and brightness indication
 exec mkfifo /tmp/SWAYSOCK.wob && tail -f /tmp/SWAYSOCK.wob | wob
 exec xhost +SI:localuser:root # for allowing sudo windows
-exec ramboxpro 
+exec ramboxpro
 exec discord --start-minimized --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy
-exec dash -c 'ssh-agent -a "$XDG_RUNTIME_DIR/ssh-agent.sock" | sed -e 3d -e "s/^/export /" > "$XDG_RUNTIME_DIR/ssh-agent.env"'
+exec dash -c 'ssh-agent -a "$XDG_RUNTIME_DIR/ssh-agent.sock" > "$XDG_RUNTIME_DIR/ssh-agent.env"'
 exec mako
 exec keepassxc
 exec autotiling
@@ -137,8 +137,8 @@ bindsym $mod+space focus mode_toggle
 
 bindsym $mod+Shift+r exec swaymsg reload
 
-bindsym Print exec bash -c 'grim -g "$(slurp)" -t png -l 9 ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
-bindsym Shift+Print exec bash -c 'grim -t png -l 9 ~/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss).png'
+bindsym Print exec bash -c 'grim -g "$(slurp)" -t png ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
+bindsym Shift+Print exec bash -c 'grim -t png ~/Pictures/Screenshots/$(date +%Y%m%d_%Hh%Mm%Ss).png'
 bindsym Ctrl+Print exec farge
 bindsym Ctrl+Shift+Print exec dash -c 'pgrep wf-recorder && pkill -2 wf-recorder || wf-recorder --muxer=v4l2 --codec=rawvideo -x yuv420p -o DP-3 --file=/dev/video0'
 
@@ -164,6 +164,7 @@ status_command i3status-rs
 
 # set a wallpaper so we can look at something while awaiting startup
 output "*" bg ~/.wallpaper fill
+exec swaybg -i ~/.wallpaper
 
 seat seat0 xcursor_theme Bibata-Original-Classic 14
 
