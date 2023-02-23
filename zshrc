@@ -48,12 +48,24 @@ setopt extendedglob
 TRAPUSR1() { rehash }
 
 
-# Make HOME and END work
-#bindkey    "\e[3~"    delete-char
-#bindkey    "\e[1;5C"  forward-word
-#bindkey    "\e[1;5D"  backward-word
-#bindkey    "\e[H"     beginning-of-line
-#bindkey    "\e[F"     end-of-line
+typeset -g -A key
+
+key[Home]="${terminfo[khome]}"
+key[End]="${terminfo[kend]}"
+key[Delete]="${terminfo[kdch1]}"
+
+# setup key accordingly
+[[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
+[[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"        end-of-line
+[[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
+
+if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+	autoload -Uz add-zle-hook-widget
+	function zle_application_mode_start { echoti smkx }
+	function zle_application_mode_stop { echoti rmkx }
+	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+fi
 
 # add notify-send support on SSH connections
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
