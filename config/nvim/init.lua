@@ -26,6 +26,9 @@ vim.api.nvim_set_keymap("n", "<CR>", ":noh<CR>", {silent = true})
 vim.opt.wildmode = "longest,list,full"
 vim.opt.completeopt = "longest,menuone"
 
+-- auto-load changes
+vim.opt.autoread = true
+
 -- always show 2 lines around the cursor
 vim.opt.scrolloff = 2
 
