@@ -22,6 +22,10 @@ vim.opt.smartcase = true
 vim.api.nvim_set_keymap("n", "<Esc>", ":noh<CR>", {silent = true})
 vim.api.nvim_set_keymap("n", "<CR>", ":noh<CR>", {silent = true})
 
+-- completion-menu
+vim.opt.wildmode = "longest,list,full"
+vim.opt.completeopt = "longest,menuone"
+
 -- always show 2 lines around the cursor
 vim.opt.scrolloff = 2
 
