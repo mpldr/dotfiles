@@ -78,7 +78,7 @@
 [help]
 	autocorrect = "prompt"
 [include]
-	path = .gitconfig.host
+	path = ~/.gitconfig.host
 [push]
 	autoSetupRemote = true
 [pretty]

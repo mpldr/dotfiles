@@ -1,6 +1,8 @@
 [commit]
-	gpgSign = true
+	gpgsign = true
 [tag]
-	gpgSign = true
+	gpgsign = true
+[user]
+	signingkey = 190A743436A77032B4E17C9F47DF8FD1598E633F
 [sendemail]
-	from = Moritz Poldrack <moritz@poldrack.dev>
+	from = "Moritz Poldrack <moritz@poldrack.dev>"
