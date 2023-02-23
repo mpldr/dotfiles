@@ -93,8 +93,11 @@ return require('packer').startup({function(use)
 
 	use { 'lambdalisue/suda.vim' }
 
+	use { 'tpope/vim-fugitive' }
+
 	use { 'tpope/vim-dadbod' }
 	use { 'tpope/vim-commentary' }
+	use { 'tpope/vim-eunuch' }
 	use { 'tommcdo/vim-lion' }
 
 	if packer_bootstrap then
