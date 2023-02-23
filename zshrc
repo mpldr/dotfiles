@@ -24,6 +24,9 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle :compinstall filename '/home/moritz/.zshrc'
 
 autoload -Uz compinit
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X" edit-command-line
 compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
