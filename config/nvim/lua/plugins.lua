@@ -80,6 +80,8 @@ return require('packer').startup({function(use)
 	use { 'nvim-lua/plenary.nvim' }
 	use { 'ThePrimeagen/harpoon' }
 
+	use { 'tommcdo/vim-lion' }
+
 	use { 'ThePrimeagen/vim-be-good' }
 
 	if packer_bootstrap then
