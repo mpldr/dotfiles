@@ -28,6 +28,8 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X" edit-command-line
 bindkey "^R" history-incremental-search-backward
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
 compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
