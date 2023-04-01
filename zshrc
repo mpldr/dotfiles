@@ -77,21 +77,6 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 	}
 fi
 
-#ZSH-PLUGIN zsh-users/zsh-syntax-highlighting
-#ZSH-PLUGIN zpm-zsh/ssh
-##ZSH-PLUGIN zsh-users/zsh-history-substring-search
-#ZSH-PLUGIN qoomon/zsh-lazyload
-#ZSH-PLUGIN reobin/typewritten
-#ZSH-PLUGIN zsh-users/zsh-autosuggestions
-#ZSH-PLUGIN MichaelAquilina/zsh-auto-notify
-#ZSH-PLUGIN arzzen/calc.plugin.zsh
-#ZSH-PLUGIN zpm-zsh/colorize
-#ZSH-PLUGIN viko16/gitcd.plugin.zsh
-#ZSH-PLUGIN jreese/zsh-titles
-##ZSH-PLUGIN chitoku-k/fzf-zsh-completions
-##ZSH-PLUGIN qoomon/zsh-lazyload
-
-
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -106,7 +91,6 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
-zinit load reobin/typewritten
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 [ -z $SSH_CLIENT ] || zinit light zpm-zsh/ssh
@@ -295,3 +279,43 @@ fi
 if [[ "$ZPROF" = true ]]; then
 	zprof
 fi
+
+setopt PROMPT_SUBST
+_HOST="$([ -n "$SSH_CLIENT" ] && echo "@%m ")"
+_ROOT="%(!,%F{red}root,$([ -n "$SSH_CLIENT" ] && echo "%F{yellow}%n"))%F{yellow}$_HOST"
+_PROMPT_CHARACTER="%(?,%F{blue},%F{red})❯" # red arrow on error, blue otherwise
+_STATUS="%(?,,%F{red}%? )" # show non-0 exit status in red
+_DIR() {
+	if repo_root="$(git rev-parse --show-toplevel 2> /dev/null)"; then 
+		echo ${$(pwd)#"$(dirname "$repo_root")/"} | sed 's|/.*/\([^/]*\)|/…/\1|'
+	else
+		echo %~;
+	fi
+}
+_GIT() {
+	branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null | grep -v HEAD || git rev-parse --short HEAD 2> /dev/null || echo "%F{yellow}no commit")
+
+	status_response=$(git status --porcelain -b 2> /dev/null)
+	if $(grep "^A. " <<< "$status_response" &> /dev/null) ||
+		$(grep "^M. " <<< "$status_response" &> /dev/null) ||
+		$(grep "^D. " <<< "$status_response" &> /dev/null); then
+		staged=" %F{green}+"
+	fi
+	grep "^??" <<< "$status_response" &> /dev/null && new=" %F{blue}?"
+	grep "^.M" <<< "$status_response" &> /dev/null && modified=" %F{yellow}!"
+	grep "^R." <<< "$status_response" &> /dev/null && renamed=" %F{yellow}»"
+	grep "^UU" <<< "$status_response" &> /dev/null && unmerged=" %F{cyan}ṿ"
+	grep "^## .*ahead" <<< "$status_response" &> /dev/null && ahead=" %F{blue}↑"
+	grep "^## .*behind" <<< "$status_response" &> /dev/null && behind=" %F{blue}↓"
+	git_status="$new$modified$staged$renamed$unmerged$ahead$behind"
+
+	echo -n " %f-> %F{magenta}$branch$git_status"
+}
+_VCS() {
+	if git rev-parse --is-inside-work-tree &> /dev/null; then # git
+		_GIT
+	fi
+}
+
+PROMPT="$_STATUS$_ROOT$_PROMPT_CHARACTER%F{default} "
+RPROMPT="%F{magenta}\$(_DIR)\$(_VCS)"
