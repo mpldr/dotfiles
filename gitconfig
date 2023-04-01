@@ -35,10 +35,7 @@
 	assume8bitEncoding = utf-8
 	annotate           = true
 	confirm            = auto
-	smtpserver = mail.moritz.sh
-	smtpuser = moritz@poldrack.dev
-	smtpencryption = ssl
-	smtpserverport = 465
+	sendmailcmd        = msmtpq
 [rerere]
 	enabled = 1
 [core]
