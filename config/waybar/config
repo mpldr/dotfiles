@@ -48,7 +48,7 @@
         },
         "escape": true,
 	"interval": 1,
-        "exec": "~/.config/waybar/scripts/vpn-connected.sh vpn VPN\\ active success-text VPN\\ inactive critical-text" 
+        "exec": "~/.config/waybar/scripts/vpn-connected.sh tailscale0 VPN\\ active success-text VPN\\ inactive critical-text" 
     },
     "custom/work": {
         "format": " {icon} {} ",
