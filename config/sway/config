@@ -121,10 +121,10 @@ bindsym --to-code {
 	$mod+Ctrl+Shift+Left  resize shrink width  5 px or 5 ppt
 }
 
-bindsym $mod+Return exec kitty -1
+bindsym $mod+Return exec foot
 
 for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
-set $menu exec kitty -1 --class=launcher -e bash sway-launcher-desktop
+set $menu exec foot --app-id=launcher bash sway-launcher-desktop
 bindsym $mod+d exec $menu
 #bindsym $mod+d exec ulauncher --no-window-shadow
 bindsym $mod+Shift+w exec wofi-wifi-menu
@@ -284,7 +284,7 @@ bindsym $mod+tab workspace back_and_forth
 bindsym F12 exec ~/.config/sway/scripts/getwindowname.sh
 
 # some assignments
-assign     [app_id="kitty"]                       $ws1
+assign     [app_id="foot"]                        $ws1
 assign     [app_id="sublime_merge"]               $ws2
 for_window [app_id="sublime_merge"]               layout tabbed
 assign     [title="passwords.*KeePassXC"]         $ws2
