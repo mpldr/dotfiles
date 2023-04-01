@@ -14,7 +14,7 @@ exec ( \
 	which imv && \
 	which keepassxc && \
 	which light && \
-	which swaync && \
+	which fnott && \
 	which pamixer && \
 	which playerctl && \
 	which slurp && \
@@ -24,7 +24,7 @@ exec ( \
 	which wf-recorder && \
 	which wob && \
 	which wofi-wifi-menu \
-	) || kitty -T "SWAY SETUP WIZARD" sh -c "(which yay || cd /tmp; git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si) && yay -Syu autotiling dash farge firefox grim i3status-rust imv keepassxc light swaync pamixer playerctl slurp sway-launcher-desktop swayidle udiskie wf-recorder wob wofi-wifi-menu --noconfirm && swaymsg exit"
+	) || foot -T "SWAY SETUP WIZARD" sh -c "(which yay || cd /tmp; git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si) && yay -Syu autotiling dash farge firefox grim i3status-rust imv keepassxc light fnott pamixer playerctl slurp sway-launcher-desktop swayidle udiskie wf-recorder wob wofi-wifi-menu --noconfirm && swaymsg exit"
 
 # start wob for an volume and brightness indication
 exec mkfifo /tmp/SWAYSOCK.wob && tail -f /tmp/SWAYSOCK.wob | wob
@@ -32,7 +32,7 @@ exec xhost +SI:localuser:root # for allowing sudo windows
 exec ramboxpro
 exec discord --start-minimized --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy
 exec dash -c 'ssh-agent -a "$XDG_RUNTIME_DIR/ssh-agent.sock" > "$XDG_RUNTIME_DIR/ssh-agent.env"'
-exec swaync
+exec fnott
 exec keepassxc
 exec autotiling
 exec nzbget -D
