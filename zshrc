@@ -273,8 +273,6 @@ upload(){ if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n transfer 
 
 
 type exa  >/dev/null 2>&1 && alias ls='exa -l --git -s type' || alias ls='ls -ohGNp --color=always'
-type rg   >/dev/null 2>&1 && alias grep='rg -C 2 --line-number -L' || alias grep='grep --color=auto -n -C 2 -r'
-type fd    >/dev/null 2>&1 && alias find='fd' || alias fd='find'
 type mvg   >/dev/null 2>&1 && alias mv='mvg -g'
 type cpg   >/dev/null 2>&1 && alias cp='cpg -gr' || alias cp='cp -r'
 type slit  >/dev/null 2>&1 && alias less='slit'
